@@ -1,0 +1,23 @@
+{
+  "name": "pure-node-notebook",
+  "version": "1.0.0",
+  "description": "a raw Node.js app to create online notebook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slashhuang/pure-node-notebook.git"
+  },
+  "keywords": [
+    "node",
+    "notebook"
+  ],
+  "author": "slashhuang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slashhuang/pure-node-notebook/issues"
+  },
+  "homepage": "https://github.com/slashhuang/pure-node-notebook#readme"
+}
