@@ -8,7 +8,7 @@
  class APP {
  	initServer(){
  		return (request,response)=>{
- 			let PlainText = StaticHandler(request);
+ 			let PlainText = StaticHandler(request,response);
  			response.end(PlainText)
  		}
  	}
