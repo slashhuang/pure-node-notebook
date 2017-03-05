@@ -17,5 +17,5 @@
 
 ## 效果
 
-[效果展示](./assets-demo/lesson-1.png)
+![效果展示](./assets-demo/lesson-1.png)
 
