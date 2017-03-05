@@ -11,7 +11,26 @@
 ## 运行代码
 
 ```bash
+	git clone https://github.com/slashhuang/pure-node-notebook.git
 	npm install 
 	npm start
 ```
 
+
+## 课件代码
+
+1. 第一课: 创建一个简单的服务器
+
+> 知识点: http请求。 ES6语法。 端口号。 commonJS模块体系。
+
+```bash
+	git checkout lesson-1
+```
+
+2. 第二课: 创建静态资源html、js返回
+
+> 知识点: fs模块。 http请求对象分析。
+
+```bash
+	git checkout lesson-2
+```

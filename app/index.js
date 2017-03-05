@@ -3,10 +3,13 @@
  *  create by slashhuang
  */
 
+ const StaticHandler  = require('./statics');
+
  class APP {
  	initServer(){
  		return (request,response)=>{
- 			response.end('欢迎使用Node记事本')
+ 			let PlainText = StaticHandler(request);
+ 			response.end(PlainText)
  		}
  	}
  }
