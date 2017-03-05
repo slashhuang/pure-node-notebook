@@ -26,6 +26,7 @@
 ```bash
 	git checkout lesson-1
 ```
+![效果展示](./lesson-demo/lesson2.png)
 
 2. 第二课: 创建静态资源html、js返回
 
@@ -34,3 +35,4 @@
 ```bash
 	git checkout lesson-2
 ```
+![效果展示](./lesson-demo/lesson2.png)
