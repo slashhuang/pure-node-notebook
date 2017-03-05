@@ -6,7 +6,7 @@
  class APP {
  	initServer(){
  		return (request,response)=>{
- 			response.end('hello world')
+ 			response.end('欢迎使用Node记事本')
  		}
  	}
  }

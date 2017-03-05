@@ -8,5 +8,10 @@
 
 > 所有语法都在Node.green下的支持列表
 
-## 项目架构
+## 运行代码
+
+```bash
+	npm install 
+	npm start
+```
 

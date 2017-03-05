@@ -13,4 +13,4 @@
  let handlerInstance = new App()
  http.createServer(handlerInstance.initServer()).listen(PORT);
 
- console.log(`server listening on port ${PORT}`)
+ console.log(`node程序开始监听端口: ${PORT}`)
