@@ -4,7 +4,7 @@
   "description": "a raw Node.js app to create online notebook",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --inspect index.js"
   },
   "repository": {
     "type": "git",
