@@ -6,8 +6,11 @@
  */
 
  const http =require('http');
-
+ const PORT = 7000;
 
  /*主程序逻辑*/
- const APP = require('./app');
- http.createServer(APP.callback()).listen(7000);
+ const App = require('./app');
+ let handlerInstance = new App()
+ http.createServer(handlerInstance.initServer()).listen(PORT);
+
+ console.log(`server listening on port ${PORT}`)
