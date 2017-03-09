@@ -36,3 +36,11 @@
 	git checkout lesson-2
 ```
 ![效果展示](./lesson-demo/lesson2.png)
+
+3. 第三课: 学习Promise来处理异步 http request
+
+> 知识点: Promise。 http请求对象分析
+
+
+
+

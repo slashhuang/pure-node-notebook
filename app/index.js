@@ -8,8 +8,13 @@
  class APP {
  	initServer(){
  		return (request,response)=>{
- 			let PlainText = StaticHandler(request,response);
- 			response.end(PlainText)
+ 			request.on("data",(chunked)=>{
+ 				console.log('getting data',chunked)
+ 			})
+ 			//静态资源处理
+ 			StaticHandler(request,response).then((data)=>{
+ 				response.end(data)
+ 			})
  		}
  	}
  }
