@@ -1,5 +1,3 @@
-
-
 /*
  * created by slashhuang
  * node主程序入口
