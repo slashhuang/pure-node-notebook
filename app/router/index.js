@@ -26,7 +26,7 @@ module.exports = (request,response)=>{
                       request.context.body = htmlString;
                       resolve()    
                     }catch(e){
-                      reject()
+                      reject(e)
                     }
                 }
             })
