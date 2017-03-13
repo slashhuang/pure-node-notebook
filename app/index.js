@@ -28,6 +28,8 @@
 			//自定义数据模型
 			request.context={
 				body:'', //返回前端的数据，
+				path:'',//路径
+				query:'',//query键值对
 			};
 			//解析Url
 			this.use(UrlParser);
@@ -42,7 +44,7 @@
 				response.end(body);
 			}).catch(error=>{
 				response.writeHead(400,'bug happened');
-				response.body = `bug happended ${error.message} ${error.stack}`;
+				response.end(`bug happended ${error.message} ${error.stack}`);
 			})
  		}
  	}
