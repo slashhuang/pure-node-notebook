@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/slashhuang/pure-node-notebook/issues"
   },
-  "homepage": "https://github.com/slashhuang/pure-node-notebook#readme"
+  "homepage": "https://github.com/slashhuang/pure-node-notebook#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }

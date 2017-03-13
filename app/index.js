@@ -4,14 +4,46 @@
  */
 
  const StaticHandler  = require('./statics');
-
+ const RouterHandler = require('./router');
+ const UrlParser = require('./url-parser');
  class APP {
- 	initServer(){
+	constructor(){
+		this.PromiseChain = Promise.resolve();
+		this.middlewareQueue = [];
+	}
+	use(middleware){
+		this.middlewareQueue.push(middleware);
+	}
+	composeMiddleware(){
+		return this.middlewareQueue.reduce((pre,currentPromise,index,middlewareQueue)=>{
+					return	pre.then(()=>{
+								return currentPromise(this.request,this.response)
+							})
+			},Promise.resolve())
+	} 
+ 	initServer(){ 
  		return (request,response)=>{
- 			//静态资源处理
- 			StaticHandler(request,response).then((data)=>{
- 				response.end(data)
- 			})
+			this.request = request;
+			this.response = response;
+			//自定义数据模型
+			request.context={
+				body:'', //返回前端的数据，
+			};
+			//解析Url
+			this.use(UrlParser);
+			//解析静态资源
+			this.use(StaticHandler);
+			//解析网页路由
+			this.use(RouterHandler);
+			this.composeMiddleware().then(data=>{
+				let { body } = request.context;
+				response.statusCode= 200;
+				response.statusMessage = 'response correctly';
+				response.end(body);
+			}).catch(error=>{
+				response.writeHead(400,'bug happened');
+				response.body = `bug happended ${error.message} ${error.stack}`;
+			})
  		}
  	}
  }

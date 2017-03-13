@@ -9,20 +9,23 @@ const path = require('path');
 let getAbsolutePath =(...pathArr) =>{
 	return path.resolve.apply(path,[__dirname,...pathArr]);
 }
+//将数据存储到我们自定义的context对象上
 let StaticHandler = (request,response)=>{
-	let url = request.url;
+	let url = request.context.url;
 	return Promise.resolve().then(()=>{
+			let _body = '';
 			if(url == '/'){
 		 		let indexPath = getAbsolutePath('./html/index.html');
-		 		return fs.readFileSync(indexPath,'utf-8')
+		 		_body = fs.readFileSync(indexPath,'utf-8')
 		 	}else if(/\.js|\.css/.test(url)){
 		 		let ext = path.extname(url);
 		 		let css_js_Path = getAbsolutePath(`.${url}`);
 		 		response.setHeader('Content-Type', ContentTypeMap[ext]);
-		 		return fs.readFileSync(css_js_Path,'utf-8')
+		 		_body =  fs.readFileSync(css_js_Path,'utf-8')
 		 	}else{
-		 		return 'not found'
+		 		_body =  'not found'
 		 	}
+			request.context.body = _body;
 	})
  	
  };
