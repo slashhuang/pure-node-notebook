@@ -11,15 +11,12 @@ let getAbsolutePath =(...pathArr) =>{
 }
 //将数据存储到我们自定义的context对象上
 let StaticHandler = (request,response)=>{
-	let url = request.context.url;
+	let pathname = request.context.path;
 	return Promise.resolve().then(()=>{
 			let _body = '';
-			if(url == '/'){
-		 		let indexPath = getAbsolutePath('./html/index.html');
-		 		_body = fs.readFileSync(indexPath,'utf-8')
-		 	}else if(/\.js|\.css/.test(url)){
-		 		let ext = path.extname(url);
-		 		let css_js_Path = getAbsolutePath(`.${url}`);
+			if(/\.js|\.css/.test(pathname)){
+		 		let ext = path.extname(pathname);
+		 		let css_js_Path = getAbsolutePath(`.${pathname}`);
 		 		response.setHeader('Content-Type', ContentTypeMap[ext]);
 		 		_body =  fs.readFileSync(css_js_Path,'utf-8')
 		 	}else{

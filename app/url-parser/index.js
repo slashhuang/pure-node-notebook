@@ -2,6 +2,8 @@
  * built by slashhuang
  * 17/3/8
  * 解析URL的中间件
+ * url模块文档
+ * https://nodejs.org/api/url.html
  */
 const Url =require('url');
 const querystring = require('querystring');
