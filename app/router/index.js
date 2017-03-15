@@ -5,45 +5,54 @@
  */
 let fs = require('fs');
 let path = require('path');
+const mime =require('mime');
 /*
  * 添加模板引擎
  * 文档地址:https://github.com/mde/ejs
  */
-
 let ejsCompiler = require('./ejs_render');
 module.exports = (request,response)=>{
     let  pathname = request.context.path;
     let handMap = {
         //首页
-        '/':()=>{
-            //请自行学习Promise的thenable形式
-            return Promise.resolve({
-                then:(resolve,reject)=>{
-                    try{
-                      let htmlString =  ejsCompiler('index.html',{
-                                title:'欢迎使用Node网络笔记本',
-                            });
-                      request.context.body = htmlString;
-                      resolve()    
-                    }catch(e){
-                      reject(e)
-                    }
-                }
-            })
-            
+        '/':{
+            viewName:'index.html',
+            data:{
+                title:'欢迎使用Node网络笔记本',
+            }
         },
         //登录页面
-        '/login':()=>{
-
+        '/login':{
+            viewName:'login.html',
+            data:{
+                title:'登录',
+            }
         },
         //博客列表页面
-        '/list':()=>{
-
+        '/list':{
+            viewName:'list.html',
+            data:{
+                title:'博客列表',
+            }
         },
          //关于作者
-        '/about':()=>{
-
-        }
+        '/about':{
+            viewName:'list.html',
+            data:{
+                title:'博客列表',
+            }
+        },
     };
-    return handMap[pathname] && handMap[pathname]();
+    return Promise.resolve({then:(resolve,reject)=>{
+        //html中间件
+        if(handMap[pathname]){
+            let {viewName,data} = handMap[pathname];
+            let htmlString = ejsCompiler(viewName,data);
+            Object.assign(request.context,{
+                body:htmlString,
+                ContentType:"text/html"
+            }) ;
+        }
+        resolve()    
+     }});
 }

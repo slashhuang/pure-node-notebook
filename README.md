@@ -4,7 +4,7 @@
 
 > 纯Node 6.10.0支持的代码，不依赖于babel
 
-> 不依赖于任何第三方库，纯手写Node组件
+> 依赖于任何第三方框架，纯手写Node框架及中间件
 
 > 所有语法都在Node.green下的支持列表
 
@@ -40,6 +40,13 @@
 3. 第三课: 学习Promise来处理异步 http request
 
 > 知识点: Promise。 http请求对象分析
+
+
+
+## 项目依赖
+
+- [mime](https://github.com/broofa/node-mime)
+- [ejs](https://github.com/mde/ejs)
 
 
 

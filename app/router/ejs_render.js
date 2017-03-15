@@ -7,11 +7,9 @@ let ejs = require('ejs');
 let path =require('path');
 let fs = require('fs');
 module.exports = (()=>{
-    let layoutPath = path.resolve(__dirname,'html/layout.html');
-    // let layoutString = fs.readFileSync(layoutPath,'utf-8');
+    let layoutPath = path.resolve(process.cwd(),'public','html/layout.html');
     return (HtmlTag,dataSource)=>{
         let layoutString = fs.readFileSync(layoutPath,'utf-8');
-
         let htmlPath = path.resolve(__dirname,'html',HtmlTag);
         return ejs.compile(layoutString, 
                 {

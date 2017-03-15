@@ -38,7 +38,8 @@
 			//解析网页路由
 			this.use(RouterHandler);
 			this.composeMiddleware().then(data=>{
-				let { body } = request.context;
+				let { body,ContentType } = request.context;
+				response.setHeader('Content-Type',ContentType)
 				response.statusCode= 200;
 				response.statusMessage = 'response correctly';
 				response.end(body);
