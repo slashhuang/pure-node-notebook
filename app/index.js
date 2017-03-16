@@ -8,7 +8,6 @@
  const UrlParser = require('./url-parser');
  class APP {
 	constructor(){
-		this.PromiseChain = Promise.resolve();
 		this.middlewareQueue = [];
 	}
 	use(middleware){
