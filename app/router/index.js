@@ -35,6 +35,13 @@ module.exports = (request,response)=>{
                 title:'博客列表',
             }
         },
+        //写文章页面
+        '/write':{
+            viewName:'write.html',
+            data:{
+                title:'写博客',
+            }
+        },
          //关于作者
         '/about':{
             viewName:'list.html',
