@@ -3,7 +3,8 @@
  * 17/3/15
  */
 
-import { plugins,loaders } from './plugin_loader.js';
+var  plugins = require('./plugin_loader.js')['plugins'];
+var  loaders = require('./plugin_loader.js')['loaders'];
 var  path= require('path');
 var  AddResolve = (obj)=>{
     var transObj = {};
@@ -23,7 +24,7 @@ module.exports =  {
                 'gallery',
                 'qrcode',
                 'simplemde',
-                'simplemde_css'
+                // './js/lib/simplemde.css'
             ]
         },
         debug: true,
@@ -35,7 +36,7 @@ module.exports =  {
             publicPath: ''
         },
         resolve: {
-            alias: AddResolve(require('./config_folder/alias'))
+            alias: AddResolve(require('../config/alias'))
         },
         plugins,
         module: {

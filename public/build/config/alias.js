@@ -4,7 +4,7 @@
  */
 
 module.exports = {
-    jquery: 'js/lib/jquery-2.0.3.min.js',
+    jquery: 'js/lib/jquery.js',
     imagesloaded: 'js/lib/jquery.imagesloaded.min.js',
     gallery:'js/lib/gallery.js',
     qrcode:'js/lib/jquery.qrcode.js',

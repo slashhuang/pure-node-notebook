@@ -619,11 +619,11 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-toolbar a.fa-header-bigger:after {
-    content: "▲"
+    content: "\25B2"
 }
 
 .editor-toolbar a.fa-header-smaller:after {
-    content: "▼"
+    content: "\25BC"
 }
 
 .editor-toolbar.disabled-for-preview a:not(.no-disable) {
@@ -776,3 +776,5 @@ span.CodeMirror-selectedtext {
 .CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
     background: rgba(255, 0, 0, .15)
 }
+
+/*# sourceMappingURL=index.css.map*/

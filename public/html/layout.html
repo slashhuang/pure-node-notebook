@@ -20,8 +20,6 @@
     <link rel="apple-touch-icon-precomposed" href="/img/sunflower.jpg">
     <link rel="stylesheet" href="/css/style.css">
     <!-- markdown编辑器 -->
-    <link rel="stylesheet" href="/js/lib/simplemde.min.css">
-    <script src="/js/lib/simplemde.min.js"></script>
 </head>
 <body>
     <%- include('./module/header.html')%>
@@ -29,10 +27,7 @@
         <%- include(templateName)%>
     </div>
     <%- include('./module/footer.html')%>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-    <script src="/js/jquery.imagesloaded.min.js"></script>
-    <script src="/js/gallery.js"></script>
-    <script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+    <script src="/dist/common.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $('.navbar').click(function() {

@@ -28,12 +28,11 @@ var webpackLoaders = [
             {
                 test: /\.js[x]?$/,
                 exclude: /(node_modules)|(global\/lib\/)/,
-                loader: 'babel-loader',
-                happy: { id: 'js' }
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'happypack/loader?id=css')
+                loader: ExtractTextPlugin.extract('style-loader','css-loader')
             },
             {
                 test: /\.rcss$/,
