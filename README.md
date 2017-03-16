@@ -37,9 +37,14 @@
 ```
 ![效果展示](./lesson-demo/lesson2.png)
 
-3. 第三课: 学习Promise来处理异步 http request
+3. 第三-五课: 学习Promise来架构网站中间件 
 
-> 知识点: Promise。 http请求对象分析
+> 知识点: Promise。 程序设计模式 。  http请求对象分析
+```bash
+	git checkout lesson-3-5
+```
+![效果展示](./lesson-demo/lesson3-5.png)
+
 
 
 
