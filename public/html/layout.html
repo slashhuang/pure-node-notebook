@@ -19,6 +19,9 @@
     <link rel="apple-touch-icon" href="/img/sunflower.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/sunflower.jpg">
     <link rel="stylesheet" href="/css/style.css">
+    <!-- markdown编辑器 -->
+    <link rel="stylesheet" href="/js/lib/simplemde.min.css">
+    <script src="/js/lib/simplemde.min.js"></script>
 </head>
 <body>
     <header>
@@ -57,123 +60,8 @@
         </div>
     </header>
     <div id="container">
-        <div id="main">
-            <article class="post-expand post" itemprop="articleBody">
-                <header class="article-info clearfix">
-                    <h1 itemprop="name">
-                        <a href="/2016/08/07/git/branch/" 
-                           title="使用git修改fetch的默认行为" itemprop="url">使用git修改fetch的默认行为</a>
-                    </h1>
-                    <p class="article-author">By
-                        <a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
-                        <p class="article-time">
-                            <time datetime="2016-08-07T15:08:41.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
-                        </p>
-                </header>
-                <div class="article-content">
-                    <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3>
-                    <blockquote>
-                        <p>去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。
-                            <br>对于具体的命令使用形式,却还是存在一些不全面的地方。</p>
-                    </blockquote>
-                    <h3 id="git修改fetch默认行为"><a href="#git修改fetch默认行为" class="headerlink" title="git修改fetch默认行为"></a>git修改fetch默认行为</h3>
-                    <figure class="highlight plain">
-                        <table>
-                            <tr>
-                                <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td>
-                                <td class="code"><pre><span class="line">git config --get remote.origin.fetch</span><br><span class="line">git config remote.origin.fetch &quot;+refs/heads/*:refs/remotes/origin/*&quot;</span><br></pre></td>
-                            </tr>
-                        </table>
-                    </figure>
-                    <p class="article-more-link">
-                    </p>
-                </div>
-                <footer class="article-footer clearfix">
-                    <div class="article-catetags">
-                        <div class="article-tags">
-                            <span></span> <a href="/tags/git/">git</a>
-                        </div>
-                    </div>
-                    <div class="comments-count">
-                    </div>
-                </footer>
-            </article>
-            <nav id="page-nav" class="clearfix">
-                <span class="page-number current">1</span>
-                <a class="page-number" href="/page/2/">2</a>
-                <a class="page-number" href="/page/3/">3</a>
-                <span class="space">&hellip;</span>
-                <a class="page-number" href="/page/10/">10</a>
-                <a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-            </nav>
-        </div>
-        <div class="openaside">
-            <a class="navbutton" href="#" title="显示侧边栏"></a>
-        </div>
-        <div id="asidepart">
-            <div class="closeaside">
-                <a class="closebutton" href="#" title="隐藏侧边栏"></a>
-            </div>
-            <aside class="clearfix">
-                <div class="github-card">
-                    <p class="asidetitle">Github 名片</p>
-                    <div class="github-card" data-github="slashhuang" data-width="220" data-height="119" data-theme="medium">
-                        <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-                    </div>
-                </div>
-                <div class="categorieslist">
-                    <p class="asidetitle">分类</p>
-                    <ul>
-                        <li><a href="/categories/IOS开发/" title="IOS开发">IOS开发<sup>1</sup></a></li>
-                        <li><a href="/categories/JavaScript算法/" title="JavaScript算法">JavaScript算法<sup>1</sup></a></li>
-                        <li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>54</sup></a></li>
-                        <li><a href="/categories/Javascript/reactJS/" title="reactJS">reactJS<sup>2</sup></a></li>
-                        <li><a href="/categories/reactJS/" title="reactJS">reactJS<sup>2</sup></a></li>
-                        <li><a href="/categories/Javascript/reactJS/技术及生活日记/" title="技术及生活日记">技术及生活日记<sup>1</sup></a></li>
-                        <li><a href="/categories/Javascript/技术及生活日记/" title="技术及生活日记">技术及生活日记<sup>1</sup></a></li>
-                    </ul>
-                </div>
-                <div class="tagslist">
-                    <p class="asidetitle">标签</p>
-                    <ul class="clearfix">
-                        <li><a href="/tags/移动端/" title="移动端">移动端<sup>6</sup></a></li>
-                        <li><a href="/tags/react-native/" title="react-native">react-native<sup>4</sup></a></li>
-                        <li><a href="/tags/性能/" title="性能">性能<sup>3</sup></a></li>
-                        <li><a href="/tags/javascript/" title="javascript">javascript<sup>3</sup></a></li>
-                        <li><a href="/tags/浏览器/" title="浏览器">浏览器<sup>3</sup></a></li>
-                        <li><a href="/tags/webpack/" title="webpack">webpack<sup>2</sup></a></li>
-                        <li><a href="/tags/css/" title="css">css<sup>2</sup></a></li>
-                        <li><a href="/tags/react/" title="react">react<sup>2</sup></a></li>
-                        <li><a href="/tags/week-note/" title="week-note">week-note<sup>2</sup></a></li>
-                        <li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>2</sup></a></li>
-                        <li><a href="/tags/angular/" title="angular">angular<sup>1</sup></a></li>
-                        <li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
-                        <li><a href="/tags/nodejs/" title="nodejs">nodejs<sup>1</sup></a></li>
-                        <li><a href="/tags/南京大学/" title="南京大学">南京大学<sup>1</sup></a></li>
-                        <li><a href="/tags/redux/" title="redux">redux<sup>1</sup></a></li>
-                        <li><a href="/tags/css3/" title="css3">css3<sup>1</sup></a></li>
-                        <li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
-                        <li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
-                        <li><a href="/tags/web通信/" title="web通信">web通信<sup>1</sup></a></li>
-                        <li><a href="/tags/gulp4/" title="gulp4">gulp4<sup>1</sup></a></li>
-                    </ul>
-                </div>
-                <div class="linkslist">
-                    <p class="asidetitle">友情链接</p>
-                    <ul>
-                        <li>
-                            <a href="http://pandakeeper.net" target="_blank" title="作者阿里云地址">作者阿里云地址</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/future-team" target="_blank" title="Future-team前端">Future-team前端</a>
-                        </li>
-                        <li>
-                            <a href="http://daib13.github.io/" target="_blank" title="戴博士日志">戴博士日志</a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
+        <%- include(templateName)%>
+        <%- include('./module/side.html')%>
     </div>
     <footer>
         <div id="footer">
