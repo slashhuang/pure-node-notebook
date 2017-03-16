@@ -4,9 +4,7 @@
  */
 
  require('babel-register');
-
- 
  var webpack = require('webpack');
- webpack(require('./webpack.config.js'),function(){
+ webpack(require('./webpack/webpack.config.js'),function(){
     console.log(`run  compilation done ${Date.now()}\n`)
 });

@@ -16,9 +16,14 @@ var  AddResolve = (obj)=>{
 module.exports =  {
         watch: true,
         entry: {
-            ...main_files,
+            index:'./js/index.js',
             common: [
-                'jquery'
+                'jquery',
+                'imagesloaded',
+                'gallery',
+                'qrcode',
+                'simplemde',
+                'simplemde_css'
             ]
         },
         debug: true,
