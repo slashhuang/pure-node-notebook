@@ -1,0 +1,50 @@
+        <div id="main">
+            <article class="post-expand post" itemprop="articleBody">
+                <header class="article-info clearfix">
+                    <h1 itemprop="name">
+                        <a href="/2016/08/07/git/branch/" 
+                           title="使用git修改fetch的默认行为" itemprop="url">使用git修改fetch的默认行为</a>
+                    </h1>
+                    <p class="article-author">By
+                        <a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+                        <p class="article-time">
+                            <time datetime="2016-08-07T15:08:41.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
+                        </p>
+                </header>
+                <div class="article-content">
+                    <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3>
+                    <blockquote>
+                        <p>去年这个时候,大概的把git的官方英文文档看过一遍,但也只是理解了整个命令体系的原理。
+                            <br>对于具体的命令使用形式,却还是存在一些不全面的地方。</p>
+                    </blockquote>
+                    <h3 id="git修改fetch默认行为"><a href="#git修改fetch默认行为" class="headerlink" title="git修改fetch默认行为"></a>git修改fetch默认行为</h3>
+                    <figure class="highlight plain">
+                        <table>
+                            <tr>
+                                <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td>
+                                <td class="code"><pre><span class="line">git config --get remote.origin.fetch</span><br><span class="line">git config remote.origin.fetch &quot;+refs/heads/*:refs/remotes/origin/*&quot;</span><br></pre></td>
+                            </tr>
+                        </table>
+                    </figure>
+                    <p class="article-more-link">
+                    </p>
+                </div>
+                <footer class="article-footer clearfix">
+                    <div class="article-catetags">
+                        <div class="article-tags">
+                            <span></span> <a href="/tags/git/">git</a>
+                        </div>
+                    </div>
+                    <div class="comments-count">
+                    </div>
+                </footer>
+            </article>
+            <nav id="page-nav" class="clearfix">
+                <span class="page-number current">1</span>
+                <a class="page-number" href="/page/2/">2</a>
+                <a class="page-number" href="/page/3/">3</a>
+                <span class="space">&hellip;</span>
+                <a class="page-number" href="/page/10/">10</a>
+                <a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+            </nav>
+        </div>
