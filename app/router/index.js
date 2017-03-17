@@ -51,6 +51,7 @@ module.exports = (request,response)=>{
             viewName:'list.html',
             data:{
                 title:'博客列表',
+                staticTag:"about"
             }
         },
     };

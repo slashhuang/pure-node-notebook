@@ -453,7 +453,7 @@ a img {
     }
     #textlogo {
         float: left;
-        width: 75%;
+        width: 50%;
         margin-left: .5em;
     }
     #textlogo h1.site-name {
@@ -548,7 +548,7 @@ a img {
     }
     @media only screen and (min-width:1024px) {
         header nav ul li a {
-            padding: .2em 1.5em
+            padding: .2em .5em
         }
     }
     header nav ul li a:hover {
