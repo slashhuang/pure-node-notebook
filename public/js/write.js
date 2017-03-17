@@ -5,7 +5,6 @@
 
 const SimpleMDE = require('simplemde');
 
-debugger;
 
 let SimpleMDE_inst = new SimpleMDE();
 

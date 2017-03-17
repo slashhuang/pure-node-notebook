@@ -29,6 +29,7 @@ module.exports =  {
                 'simplemde',
                 'simplemde_css',
                 'toggle_head',
+                'hexo_css',
                 'fancybox_css',
                 'fancybox'
             ]

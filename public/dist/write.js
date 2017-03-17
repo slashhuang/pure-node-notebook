@@ -11,8 +11,6 @@ webpackJsonp([4],[
 	
 	var SimpleMDE = __webpack_require__(7);
 	
-	debugger;
-	
 	var SimpleMDE_inst = new SimpleMDE();
 	
 	console.log('fuck');

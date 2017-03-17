@@ -27,7 +27,7 @@ var webpackPluginList =[
 var webpackLoaders = [
             {
                 test: /\.js[x]?$/,
-                exclude: /(node_modules)|(global\/lib\/)/,
+                exclude: /node_modules/,
                 loader: 'babel-loader'
             },
             {

@@ -12,5 +12,5 @@ module.exports = {
     toggle_head:'js/common/toggle.js',
     fancybox:'js/fancybox/jquery.fancybox.pack.js',
     fancybox_css:'js/fancybox/jquery.fancybox.css',
-    hexo_css:'css/style.css'
+    hexo_css:'css/style.scss'
 };
