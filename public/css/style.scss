@@ -2368,3 +2368,11 @@ a img {
             display: none !important
         }
     }
+
+    .clear-fix{
+    	&:after{
+			content:'';
+			display: block;
+			clear:both;
+    	}
+    }

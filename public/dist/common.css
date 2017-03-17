@@ -3046,6 +3046,11 @@ pre .javascript .function {
 @media only screen and (max-width: 1024px) {
   #totop {
     display: none !important; } }
+
+.clear-fix:after {
+  content: '';
+  display: block;
+  clear: both; }
 /*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
 .fancybox-wrap,
 .fancybox-skin,
