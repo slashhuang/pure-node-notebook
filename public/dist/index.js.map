@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///./js/index.js"],"names":["SimpleMDE","require"],"mappings":";;;;;;AAEA,KAAMA,YAAY,mBAAAC,CAAQ,CAAR,CAAlB,C","file":"index.js","sourcesContent":["\n\nconst SimpleMDE = require('simplemde')\n\n\n// WEBPACK FOOTER //\n// ./js/index.js"],"sourceRoot":""}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"index.js","sourceRoot":""}

@@ -18,7 +18,7 @@ module.exports =  {
         watch: true,
         entry: {
             index:'./js/index.js',
-            write:'./js/index.js',
+            write:'./js/write.js',
             list:"./js/list.js",
             login:"./js/login.js",
             common: [

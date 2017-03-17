@@ -4,4 +4,9 @@
  */
 
 const SimpleMDE = require('simplemde');
-let SimpleMDE_inst = new SimpleMDE()
+
+debugger;
+
+let SimpleMDE_inst = new SimpleMDE();
+
+console.log('fuck')

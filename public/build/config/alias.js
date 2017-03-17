@@ -11,5 +11,6 @@ module.exports = {
     simplemde_css:'js/lib/simplemde.css',
     toggle_head:'js/common/toggle.js',
     fancybox:'js/fancybox/jquery.fancybox.pack.js',
-    fancybox_css:'js/fancybox/jquery.fancybox.css'
+    fancybox_css:'js/fancybox/jquery.fancybox.css',
+    hexo_css:'css/style.css'
 };
