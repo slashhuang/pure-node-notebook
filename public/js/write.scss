@@ -1,0 +1,31 @@
+$c-ef:#efd5b8;
+
+.panel-write{
+	padding:20px 20px 50px;
+	.col-l{
+		float:left;
+	}
+	.col-r{
+		float:right;
+	}
+	.invisible{
+		visibility:hidden;
+	}
+	.blog-write{
+		position:relative;
+		.submit-btn{
+			position:absolute;
+			bottom:-40px;
+			right:0;
+			color:white;
+			padding:10px 15px;
+			background:$c-ef;
+			cursor:pointer;
+			opacity:0.8;
+			transition:all 1s;
+			&:hover{
+				opacity:1
+			}
+		}
+	}
+}
