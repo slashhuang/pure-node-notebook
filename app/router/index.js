@@ -19,6 +19,7 @@ module.exports = (request,response)=>{
             viewName:'index.html',
             data:{
                 title:'欢迎使用Node网络笔记本',
+                staticTag:"index"
             }
         },
         //登录页面
@@ -26,6 +27,7 @@ module.exports = (request,response)=>{
             viewName:'login.html',
             data:{
                 title:'登录',
+                staticTag:"login"
             }
         },
         //博客列表页面
@@ -33,6 +35,7 @@ module.exports = (request,response)=>{
             viewName:'list.html',
             data:{
                 title:'博客列表',
+                staticTag:"list"
             }
         },
         //写文章页面
@@ -40,6 +43,7 @@ module.exports = (request,response)=>{
             viewName:'write.html',
             data:{
                 title:'写博客',
+                staticTag:"write"
             }
         },
          //关于作者

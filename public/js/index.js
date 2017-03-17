@@ -1,2 +1,3 @@
 
 
+const SimpleMDE = require('simplemde')

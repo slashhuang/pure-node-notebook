@@ -18,6 +18,9 @@ module.exports =  {
         watch: true,
         entry: {
             index:'./js/index.js',
+            write:'./js/index.js',
+            list:"./js/list.js",
+            login:"./js/login.js",
             common: [
                 'jquery',
                 'imagesloaded',

@@ -45,5 +45,8 @@
     "yargs": "*"
   },
   "author": "slashhuang",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "simplemde": "^1.11.2"
+  }
 }
