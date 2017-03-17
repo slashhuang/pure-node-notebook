@@ -24,7 +24,10 @@ module.exports =  {
                 'gallery',
                 'qrcode',
                 'simplemde',
-                // './js/lib/simplemde.css'
+                'simplemde_css',
+                'toggle_head',
+                'fancybox_css',
+                'fancybox'
             ]
         },
         debug: true,

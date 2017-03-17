@@ -9,5 +9,9 @@ module.exports = {
     gallery:'js/lib/gallery.js',
     qrcode:'js/lib/jquery.qrcode.js',
     simplemde:'js/lib/simplemde.js',
-    simplemde_css:'js/lib/simplemde.css'
+    simplemde_css:'js/lib/simplemde.css',
+    toggle_head:'js/common/toggle.js',
+    fancybox:'js/fancybox/jquery.fancybox.pack.js',
+    fancybox_css:'js/fancybox/jquery.fancybox.css'
+
 };
