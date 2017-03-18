@@ -2,7 +2,7 @@
  *  主程序逻辑
  *  create by slashhuang
  */
-
+ const DB = require('./db');
  const StaticHandler  = require('./statics');
  const RouterHandler = require('./router');
  const UrlParser = require('./url-parser');
@@ -23,6 +23,9 @@
 			},Promise.resolve())
 	} 
  	initServer(){ 
+ 		DB().then(dbClient=>{
+ 			this.dbClient = dbClient
+ 		})
  		//解析Url
 			this.use(UrlParser);
 			//解析body
@@ -37,6 +40,7 @@
 			this.request = request;
 			this.response = response;
 			//自定义数据模型
+			response.dbClient = this.dbClient;
 			request.context={
 				body:'', //前端post的数据，
 				path:'',//路径
