@@ -18,14 +18,15 @@ module.exports = (request,response)=>{
         //首页
         '/':{
             viewName:'index.html',
-            // dataTracker:()=>{
-            //     return getAllBlog('blog_list').then(dbData=>{
-            //         let { data } = dbData;
-            //         return {
-            //             blogList:data
-            //         }
-            //     })
-            // },
+            dataTracker:()=>{
+                let collection = dbClient.collection('blog_list');
+                return getAllBlog(collection).then(dbData=>{
+                    let { data } = dbData;
+                    return {
+                        blogList:data
+                    }
+                })
+            },
             data:{
                 title:'欢迎使用Node网络笔记本',
                 staticTag:"index",
