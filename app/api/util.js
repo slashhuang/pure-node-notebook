@@ -4,11 +4,11 @@
  */
 
  module.exports={
- 	shapeResponseJSON:(jsonBody,message)=>{
- 		return JSON.stringify({
+ 	shapeResponseJSON:(apiResponse)=>{
+ 		return JSON.stringify(Object.assign({
  			status:1,
- 			body:jsonBody,
- 			message: message ||"返回成功"
- 		})
+ 			body:"",
+ 			message: "返回成功"
+ 		},apiResponse))
  	}
  }

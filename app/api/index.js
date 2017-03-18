@@ -20,12 +20,23 @@ module.exports = (request,response)=>{
 	    	//这里只简单比对path部分
 	    	if(pathname.match(apiName)){
 	    		let { shapeResponseJSON } = ajaxUtil;
-	    		let jsonString = shapeResponseJSON(handler(request,response));
-	    		Object.assign(response.context,{
-	    			body :jsonString,
-	    			ContentType : 'application/json'
-	    		});
-	    		break;
+	    		let handlerResult = Promise.resolve(handler(request,response));
+	    		return handlerResult
+	    					.then(res=>{
+	    						/*
+								 * status,
+								 * body
+								 * message
+								 */
+	    						Object.assign(response.context,{
+	    							body : shapeResponseJSON(res),
+	    							ContentType:'application/json'
+	    						});
+	    						resolve()
+	    					})
+	    					.catch(error=>{
+				    			reject(error)
+		    				});
 	    	}
 	    }
         resolve()    
