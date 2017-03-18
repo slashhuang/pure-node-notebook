@@ -6,6 +6,7 @@
 let fs = require('fs');
 let path = require('path');
 const mime =require('mime');
+let { getAllBlog }  =require('../database');
 /*
  * 添加模板引擎
  * 文档地址:https://github.com/mde/ejs
@@ -17,9 +18,18 @@ module.exports = (request,response)=>{
         //首页
         '/':{
             viewName:'index.html',
+            dataTracker:()=>{
+                return getAllBlog('blog_list').then(dbData=>{
+                    let { data } = dbData;
+                    return {
+                        blogList:data
+                    }
+                })
+            },
             data:{
                 title:'欢迎使用Node网络笔记本',
-                staticTag:"index"
+                staticTag:"index",
+                blogList:'hello world'
             }
         },
         //登录页面
@@ -55,16 +65,20 @@ module.exports = (request,response)=>{
             }
         },
     };
-    return Promise.resolve({then:(resolve,reject)=>{
+    return Promise.resolve().then(()=>{
         //html中间件
         if(handMap[pathname]){
-            let {viewName,data} = handMap[pathname];
-            let htmlString = ejsCompiler(viewName,data);
-            Object.assign(response.context,{
-                body:htmlString,
-                ContentType:"text/html"
-            }) ;
+            let {viewName,data,dataTracker} = handMap[pathname];
+            return Promise.resolve().then(()=>{
+                     return dataTracker && dataTracker()
+                }).then(dbData=>{
+                    Object.assign(data,dbData||{})
+                    let htmlString = ejsCompiler(viewName,data);
+                    Object.assign(response.context,{
+                        body:htmlString,
+                        ContentType:"text/html"
+                    });
+                })
         }
-        resolve()    
-     }});
+     });
 }

@@ -51,7 +51,12 @@
 ## 项目依赖
 
 - [mime](https://github.com/broofa/node-mime)
+
 - [ejs](https://github.com/mde/ejs)
+
+- [simplemde](https://github.com/NextStepWebs/simplemde-markdown-editor/)
+
+- [mongodb](http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/)
 
 
 

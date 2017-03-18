@@ -1,6 +1,7 @@
 /*
  *  @Author slashhuang
- *  本地database操作
+ *  使用mongodb
+ *  https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
  *  17/3/17
  * http://man7.org/linux/man-pages/man2/open.2.html
  */
@@ -13,17 +14,22 @@ const path = require('path')
 |- content:''
 { id : content}
 */
-// 存储
-let store = (tableName,content)=>{
- 	let id = Math.random().toString(32).substr(-6);
- 	let tablePath = path.resolve(process.cwd(),'database',tableName+'.db');
- 	/*
+//decorator
+let checkExist = handler=>(tableName,content)=>{
+	/*
  	 * 'w' - Open file for writing. The file is created (if it does not exist) or truncated (if it exists).
 	 * 'wx' - Like 'w' but fails if path exists.
  	 */
+ 	let tablePath = path.resolve(process.cwd(),'database',tableName+'.db');
  	if(!fs.existsSync(tablePath)){
  		fs.openSync(tablePath,'w')
- 	}
+ 	};
+ 	return handler(tableName,content)(tablePath)
+
+}
+//存储
+let store = (tableName,content)=>tablePath=>{
+ 	let id = Math.random().toString(32).substr(-6);
  	return Promise.resolve({
  		then:(resolve,reject)=>{
  			let content = fs.readFileSync(tablePath,'utf8');
@@ -47,9 +53,28 @@ let store = (tableName,content)=>{
 			 	}});
  		}
  	})
+ };
+ let getAllBlog = (tableName)=>tablePath=>{
+ 	return Promise.resolve({
+ 		then:(resolve,reject)=>{
+ 			fs.readFile(tablePath,'utf8',(error,content)=>{
+			 	if(error){
+			 		reject({
+			 			status:-1,
+			 			data:error
+			 		})
+			 	}else{
+			 		resolve({
+						data:content,
+						status:1
+					 })
+			 	}});
+ 		}
+ 	})
  }
  module.exports={
- 	store
+ 	store:checkExist(store),
+ 	getAllBlog:checkExist(getAllBlog)
  }
 
 
