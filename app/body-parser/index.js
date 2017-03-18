@@ -13,7 +13,7 @@ module.exports = (request,response)=>{
 	    	request.on('data',(chunk)=>{
 				_body.push(chunk);
 	    	}).on('end',()=>{
-	    		request.context.body = Buffer.concat(_body).toString();
+	    		request.context.body = JSON.parse(Buffer.concat(_body).toString());
 	    		resolve()
 	    	}).on('error',(error)=>{
 	    		reject(error)

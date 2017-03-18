@@ -1,5 +1,19 @@
 .panel-write {
   padding: 20px 20px 50px; }
+  .panel-write .title-input {
+    position: relative; }
+    .panel-write .title-input .title {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 120px; }
+    .panel-write .title-input .input {
+      padding: 2px 10px;
+      margin-left: 120px;
+      display: block;
+      border-bottom: 1px solid darkgoldenrod; }
+      .panel-write .title-input .input input {
+        font-size: 15px; }
   .panel-write .col-l {
     float: left; }
   .panel-write .col-r {

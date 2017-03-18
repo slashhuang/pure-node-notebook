@@ -23,7 +23,6 @@
 			},Promise.resolve())
 	} 
  	initServer(){ 
-		 setTimeout(()=>{
  		DB().then(dbClient=>{
  			this.dbClient = dbClient;
 			 //非严格模式
@@ -34,7 +33,7 @@
 					console.log(`create collection blog_list`)
 				}
 			});
- 		})},10000);
+ 		});
  		//解析Url
 			this.use(UrlParser);
 			//解析body

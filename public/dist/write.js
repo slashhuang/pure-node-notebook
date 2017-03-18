@@ -42,11 +42,17 @@ webpackJsonp([4],{
 			var self = this;
 			$('.submit-btn').click(function () {
 				var markdown = _this.SimpleMDE.value();
+				var title = $('.title-input').find('input').val();
 				var html = _this.makeHtml(markdown);
 				self.ajax({
 					url: '/blog/add.action',
 					method: 'post',
-					data: html,
+					contentType: "application/json; charset=utf-8",
+					dataType: "json",
+					data: JSON.stringify({
+						title: title,
+						html: html
+					}),
 					success: function success(res) {
 						console.log(res);
 					}

@@ -14,6 +14,7 @@ let { getAllBlog }  =require('../database');
 let ejsCompiler = require('./ejs_render');
 module.exports = (request,response)=>{
     let  pathname = request.context.pathname;
+    let {dbClient} = response
     let handMap = {
         //首页
         '/':{
@@ -23,7 +24,7 @@ module.exports = (request,response)=>{
                 return getAllBlog(collection).then(dbData=>{
                     let { data } = dbData;
                     return {
-                        blogList:data
+                        blogList:data.map(blog=>blog.content)
                     }
                 })
             },

@@ -37,8 +37,6 @@ let store = (collection,content)=>(resolve,reject)=>{
  		};
 let getAllBlog = (collection,content)=>(resolve,reject)=>{
 	collection.find({}).toArray((err, docs)=> {
-		console.log('====');
-		console.log(docs)
 		if(err){
 				reject({
 					status:-1,

@@ -33,11 +33,17 @@ let app = {
 		let self = this;
 		$('.submit-btn').click(()=>{
 			let markdown = this.SimpleMDE.value();
+			let title = $('.title-input').find('input').val();
 			let html = this.makeHtml(markdown);
 			self.ajax({
 				url:'/blog/add.action',
 				method:'post',
-				data:html,
+				contentType:"application/json; charset=utf-8",
+  				dataType:"json",
+				data:JSON.stringify({
+					title,
+					html
+				}),
 				success:(res)=>{
 					console.log(res);
 				}

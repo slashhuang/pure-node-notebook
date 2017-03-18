@@ -1,5 +1,24 @@
 
 
-<%- blogList %>
-<!-- <%- include('blog/blog.html')%> -->
+        <div id="main">
+                <% blogList.forEach(function(blog){ %>
+                   <article class="post-expand post" itemprop="articleBody">
+                        <header class="article-info clearfix">
+                            <h1 itemprop="name">
+                                <a href="/2016/08/07/git/branch/" 
+                                title="<%- blog.title %>" itemprop="url"><%- blog.title %></a>
+                            </h1>
+                            <p class="article-author">By
+                                <a href="/about" title="slashhuang" target="_blank" itemprop="author">slashhuang</a>
+                                <p class="article-time">
+                                    <time datetime="2016-08-07T15:08:41.000Z" itemprop="datePublished"> 发表于 2016-08-07</time>
+                                </p>
+                        </header>
+                        <div class="article-content">
+                            <%- blog.html %>
+                        </div>
+                        
+                    </article>
+                <% }); %>            
+        </div>%>
 <%- include('./module/side.html')%>
