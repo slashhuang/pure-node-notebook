@@ -14,7 +14,6 @@ module.exports = (request,response)=>{
     let { pathname }= request.context;
     let apiPool = Object.assign({},ApiBlog,ApiUser);
     return Promise.resolve({then:(resolve,reject)=>{
-        //在Node项目中的函数工具最好还是采用lodash
 	    for(let apiName in apiPool){
 	    	let handler = apiPool[apiName];
 	    	//这里只简单比对path部分

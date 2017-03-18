@@ -10,7 +10,7 @@ module.exports = {
 		 * status:-1,
 		 * data:error
 		 */
-		let collection = db.collection('blog_list');
+		let collection = dbClient.collection('blog_list');
 		return store(collection,body).then((dbResponse)=>{
 			let { data,status} = dbResponse
 			return {

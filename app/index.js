@@ -24,7 +24,14 @@
 	} 
  	initServer(){ 
  		DB().then(dbClient=>{
- 			this.dbClient = dbClient
+ 			this.dbClient = dbClient;
+			dbClient.createCollection('blog_list',(err)=>{
+				if(err){
+					console.log(err)
+				}else{
+					console.log(`create collection blog_list`)
+				}
+			});
  		})
  		//解析Url
 			this.use(UrlParser);
