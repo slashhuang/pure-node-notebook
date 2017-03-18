@@ -11,5 +11,3 @@
  http.createServer(handlerInstance.initServer()).listen(PORT,()=>{
  	 console.log(`node----程序开始监听端口: ${PORT}`)
  });
-
- require('./db.js')

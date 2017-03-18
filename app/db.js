@@ -2,7 +2,7 @@
   * mongodb 数据库操作
   * @Author slashhuang
   * 17/3/17
-  * https://mongodb.github.io/node-mongodb-native/
+  * http://mongodb.github.io/node-mongodb-native/2.2/
   */
 const { MongoClient }= require('mongodb');
 // Connection URL
