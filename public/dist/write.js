@@ -5,6 +5,8 @@ webpackJsonp([4],{
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	/*
 	 * 博客 markdown 编写区域
 	 * @Author slashhuang
@@ -26,13 +28,29 @@ webpackJsonp([4],{
 		makeHtml: function makeHtml(markdown) {
 			return this.converter.makeHtml(markdown);
 		},
+		ajax: function ajax(options) {
+			$.ajax(_extends({
+				method: 'get',
+				error: function error(_error) {
+					console.log(_error);
+				}
+			}, options));
+		},
 		events: function events() {
 			var _this = this;
 	
+			var self = this;
 			$('.submit-btn').click(function () {
 				var markdown = _this.SimpleMDE.value();
 				var html = _this.makeHtml(markdown);
-				$('#preview').html(html);
+				self.ajax({
+					url: '/blog/add.action',
+					method: 'post',
+					data: html,
+					success: function success(res) {
+						console.log(res);
+					}
+				});
 			});
 		}
 	};

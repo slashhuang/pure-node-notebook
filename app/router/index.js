@@ -12,7 +12,7 @@ const mime =require('mime');
  */
 let ejsCompiler = require('./ejs_render');
 module.exports = (request,response)=>{
-    let  pathname = request.context.path;
+    let  pathname = request.context.pathname;
     let handMap = {
         //首页
         '/':{

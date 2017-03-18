@@ -13,7 +13,7 @@ module.exports = (request,response)=>{
         let urlObj =  Url.parse(request.url);
         Object.assign(request.context,{
         	query : querystring.parse(urlObj.search),
-        	path :urlObj.pathname
+        	pathname :urlObj.pathname
         });
         //将流程流转到执行下一个处理中间间
         resolve();

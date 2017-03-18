@@ -6,6 +6,8 @@
  const StaticHandler  = require('./statics');
  const RouterHandler = require('./router');
  const UrlParser = require('./url-parser');
+ const BodyParser = require('./body-parser');
+ const APIHander = require('./api');
  class APP {
 	constructor(){
 		this.middlewareQueue = [];
@@ -21,6 +23,16 @@
 			},Promise.resolve())
 	} 
  	initServer(){ 
+ 		//解析Url
+			this.use(UrlParser);
+			//解析body
+			this.use(BodyParser);
+			//提供ajax服务
+			this.use(APIHander)
+			//解析网页路由
+			this.use(RouterHandler);
+			//解析静态资源
+			this.use(StaticHandler);
  		return (request,response)=>{
 			this.request = request;
 			this.response = response;
@@ -28,6 +40,7 @@
 			request.context={
 				body:'', //前端post的数据，
 				path:'',//路径
+				method:request.method.toLowerCase(),
 				query:'',//query键值对
 			};
 			//自定义数据模型
@@ -35,12 +48,6 @@
 				body:'', //返回前端的数据，
 				ContentType:'text/plain', //返回头Content-Type类型
 			};
-			//解析Url
-			this.use(UrlParser);
-			//解析静态资源
-			this.use(StaticHandler);
-			//解析网页路由
-			this.use(RouterHandler);
 			this.composeMiddleware().then(data=>{
 				let { body,ContentType } = response.context;
 				response.setHeader('Content-Type',ContentType)

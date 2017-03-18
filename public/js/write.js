@@ -20,11 +20,28 @@ let app = {
 	makeHtml:function(markdown){
 		return this.converter.makeHtml(markdown)
 	},
+	ajax:function(options){
+		$.ajax({
+			method:'get',
+			error:(error)=>{
+				console.log(error);
+			},
+			...options
+		})
+	},
 	events:function(){
+		let self = this;
 		$('.submit-btn').click(()=>{
 			let markdown = this.SimpleMDE.value();
 			let html = this.makeHtml(markdown);
-			$('#preview').html(html)
+			self.ajax({
+				url:'/blog/add.action',
+				method:'post',
+				data:html,
+				success:(res)=>{
+					console.log(res);
+				}
+			})
 		});
 	}
 };

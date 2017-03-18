@@ -13,12 +13,12 @@ let getAbsolutePath =(...pathArr) =>{
 //将数据存储到我们自定义的context对象上
 
 let StaticHandler = (request,response)=>{
-	let pathname = request.context.path;
+	let pathname = request.context.pathname;
 	return Promise.resolve({then:(resolve)=>{
 			let _body = '';
 		 	let ext = path.extname(pathname);
 			 //有后缀，并且不为action或者路由，则默认为静态资源
-			if(!!ext && ext!=='action'){
+			if(!!ext && ext!=='.action'){
 				let ContentType = mime.lookup(pathname);
 				Object.assign(response.context,{
 					ContentType,

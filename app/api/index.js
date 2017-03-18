@@ -1,66 +1,33 @@
 /*
  * @Author slashhuang
- * 客户端API服务
+ * 客户端API中间件服务
  * 17/3/15
  */
 
 let fs = require('fs');
 let path = require('path');
+const ApiBlog = require('./Blog');
+const ApiUser = require('./User');
+const ajaxUtil = require('./util');
 
 module.exports = (request,response)=>{
-    let  pathname = request.context.path;
-    let handMap = {
-        //首页
-        '/':{
-            viewName:'index.html',
-            data:{
-                title:'欢迎使用Node网络笔记本',
-                staticTag:"index"
-            }
-        },
-        //登录页面
-        '/login':{
-            viewName:'login.html',
-            data:{
-                title:'登录',
-                staticTag:"login"
-            }
-        },
-        //博客列表页面
-        '/list':{
-            viewName:'list.html',
-            data:{
-                title:'博客列表',
-                staticTag:"list"
-            }
-        },
-        //写文章页面
-        '/write':{
-            viewName:'write.html',
-            data:{
-                title:'写博客',
-                staticTag:"write"
-            }
-        },
-         //关于作者
-        '/about':{
-            viewName:'list.html',
-            data:{
-                title:'博客列表',
-                staticTag:"about"
-            }
-        },
-    };
+    let { pathname }= request.context;
+    let apiPool = Object.assign({},ApiBlog,ApiUser);
     return Promise.resolve({then:(resolve,reject)=>{
-        //html中间件
-        if(handMap[pathname]){
-            let {viewName,data} = handMap[pathname];
-            let htmlString = ejsCompiler(viewName,data);
-            Object.assign(request.context,{
-                body:htmlString,
-                ContentType:"text/html"
-            }) ;
-        }
+        //在Node项目中的函数工具最好还是采用lodash
+	    for(let apiName in apiPool){
+	    	let handler = apiPool[apiName];
+	    	//这里只简单比对path部分
+	    	if(pathname.match(apiName)){
+	    		let { shapeResponseJSON } = ajaxUtil;
+	    		let jsonString = shapeResponseJSON(handler(request,response));
+	    		Object.assign(response.context,{
+	    			body :jsonString,
+	    			ContentType : 'application/json'
+	    		});
+	    		break;
+	    	}
+	    }
         resolve()    
      }});
 }
