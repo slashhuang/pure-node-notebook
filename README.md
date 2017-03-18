@@ -46,6 +46,15 @@
 ![效果展示](./lesson-demo/lesson3-5.png)
 
 
+4. 第六-10课: 使用webpack架构前端、采用mongodb作为数据库
+
+> 知识点: Promise、设计模式、mongodb、webpack
+```bash
+	git checkout lesson5-10
+```
+![效果展示](./lesson-demo/lesson5-10.png)
+
+
 
 
 ## 项目依赖
