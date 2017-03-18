@@ -20,7 +20,7 @@ let StaticHandler = (request,response)=>{
 			 //有后缀，并且不为action或者路由，则默认为静态资源
 			if(!!ext && ext!=='action'){
 				let ContentType = mime.lookup(pathname);
-				Object.assign(request.context,{
+				Object.assign(response.context,{
 					ContentType,
 					body:fs.readFileSync(getAbsolutePath(`./${pathname}`))||'NOT FOUND'
 				});

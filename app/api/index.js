@@ -1,16 +1,12 @@
 /*
- * 纯前端页面路由分发
- * @author slashhuang
- * 17/3/10
+ * @Author slashhuang
+ * 客户端API服务
+ * 17/3/15
  */
+
 let fs = require('fs');
 let path = require('path');
-const mime =require('mime');
-/*
- * 添加模板引擎
- * 文档地址:https://github.com/mde/ejs
- */
-let ejsCompiler = require('./ejs_render');
+
 module.exports = (request,response)=>{
     let  pathname = request.context.path;
     let handMap = {
@@ -60,7 +56,7 @@ module.exports = (request,response)=>{
         if(handMap[pathname]){
             let {viewName,data} = handMap[pathname];
             let htmlString = ejsCompiler(viewName,data);
-            Object.assign(response.context,{
+            Object.assign(request.context,{
                 body:htmlString,
                 ContentType:"text/html"
             }) ;

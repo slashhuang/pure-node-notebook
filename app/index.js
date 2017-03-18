@@ -26,9 +26,14 @@
 			this.response = response;
 			//自定义数据模型
 			request.context={
-				body:'', //返回前端的数据，
+				body:'', //前端post的数据，
 				path:'',//路径
 				query:'',//query键值对
+			};
+			//自定义数据模型
+			response.context={
+				body:'', //返回前端的数据，
+				ContentType:'text/plain', //返回头Content-Type类型
 			};
 			//解析Url
 			this.use(UrlParser);
@@ -37,7 +42,7 @@
 			//解析网页路由
 			this.use(RouterHandler);
 			this.composeMiddleware().then(data=>{
-				let { body,ContentType } = request.context;
+				let { body,ContentType } = response.context;
 				response.setHeader('Content-Type',ContentType)
 				response.statusCode= 200;
 				response.statusMessage = 'response correctly';
