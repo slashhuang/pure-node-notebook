@@ -4,5 +4,6 @@
  */
 
 module.exports = {
-    reset:'css/reset.css'
+    reset:'css/reset.scss',
+    common_lib:'js/common/index.js'
 };

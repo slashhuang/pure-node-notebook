@@ -1,3 +1,6 @@
+@import './highlight/dark.scss';
+@import './header_footer/index.scss';
+
 html, body {
     color: #212121;
     background: #f2f2f2;
@@ -336,3 +339,6 @@ button[disabled], .Btn[disabled] {
     color: #fff;
     border: 0;
 }
+
+
+

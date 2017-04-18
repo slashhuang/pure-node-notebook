@@ -19,7 +19,8 @@ module.exports =  {
             index:'./js/index.js',
             common: [
                 'jquery',
-                "reset"
+                "reset",
+                'common_lib'
             ]
         },
         // debug: true,
