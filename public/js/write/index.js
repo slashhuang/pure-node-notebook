@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import './scss/index.scss';
 import React ,{ Component } from 'react';
 import { render } from 'react-dom';
-import { categoryApi  } from './ajax'
+import { categoryApi,submitBlogApi  } from './ajax'
 //UI框架
 import LeftMenu from './menu';
 import { Row, Col,Menu, Input,Select, Button, Icon } from 'antd';
@@ -32,11 +32,26 @@ class Write extends Component{
 			category:''
 		}
 		this.storeData = this.storeData.bind(this);
+		this.submitData = this.submitData.bind(this);
 	}
 	componentDidMount(){
 		categoryApi().then(categoryList=>{
 			this.setState({
 				categoryList:categoryList
+			})
+		})
+	}
+	submitData(){
+		let {
+			categoryList,
+			...blogData
+		} = this.state;
+		this.setState({
+			loading:true
+		})
+		submitBlogApi(blogData).then(res=>{
+			this.setState({
+				loading:false
 			})
 		})
 	}
@@ -104,17 +119,27 @@ class Write extends Component{
 				    </Row>
 				    <Row className="markdown">
 				    	<Col span={12}>
-				    		<Input type="textarea" rows={10} 
+				    		<Input type="textarea"
+				    			   className="mark-content" 
 				    			   value={content}
 				    			   onChange={e=>{
 				    			   		this.storeData({content:e.target.value},this.parserHtml)
 				    			   	}}/>
 				    	</Col>
 				    	<Col span={12}>
-				    		<div className="preview-content"
+				    		<div className="mark-content"
 				    			ref={preview =>{this.previewDom = preview}}>
 				    		</div>
 				    	</Col>
+				    </Row>
+				     <Row className="submit-btn"
+				     	  type="flex" justify="center">
+				    		<Button type="primary" 
+				    			size='large'
+				    			loading={this.state.loading} 
+				    			onClick={this.submitData}>
+					          提交博客
+					        </Button>
 				    </Row>
 				 </div>
 

@@ -47652,7 +47652,7 @@ if (ENV !== 'production' && ENV !== 'test' && typeof console !== 'undefined' && 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.categoryApi = undefined;
+exports.submitBlogApi = exports.categoryApi = undefined;
 
 var _axios = __webpack_require__(563);
 
@@ -47666,7 +47666,15 @@ var categoryApi = function categoryApi() {
 		return res['data'];
 	});
 }; //网络请求
+
+var submitBlogApi = function submitBlogApi(data) {
+	var api = '/blog.action';
+	return _axios2.default.post(api, data).then(function (res) {
+		return res['data'];
+	});
+};
 exports.categoryApi = categoryApi;
+exports.submitBlogApi = submitBlogApi;
 
 /***/ }),
 /* 451 */
@@ -63016,6 +63024,8 @@ var _highlight3 = _interopRequireDefault(_highlight2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -63056,6 +63066,7 @@ var Write = function (_Component) {
 			category: ''
 		};
 		_this.storeData = _this.storeData.bind(_this);
+		_this.submitData = _this.submitData.bind(_this);
 		return _this;
 	}
 
@@ -63071,6 +63082,24 @@ var Write = function (_Component) {
 			});
 		}
 	}, {
+		key: 'submitData',
+		value: function submitData() {
+			var _this3 = this;
+
+			var _state = this.state,
+			    categoryList = _state.categoryList,
+			    blogData = _objectWithoutProperties(_state, ['categoryList']);
+
+			this.setState({
+				loading: true
+			});
+			(0, _ajax.submitBlogApi)(blogData).then(function (res) {
+				_this3.setState({
+					loading: false
+				});
+			});
+		}
+	}, {
 		key: 'storeData',
 		value: function storeData(obj, callback) {
 			this.setState(obj, callback);
@@ -63078,26 +63107,26 @@ var Write = function (_Component) {
 	}, {
 		key: 'parserHtml',
 		value: function parserHtml() {
-			var _this3 = this;
+			var _this4 = this;
 
 			var content = this.state.content;
 
 			if (content) {
 				(0, _marked2.default)(content, function (err, _content) {
-					_this3.previewDom.innerHTML = _content;
+					_this4.previewDom.innerHTML = _content;
 				});
 			}
 		}
 	}, {
 		key: 'render',
 		value: function render() {
-			var _this4 = this;
+			var _this5 = this;
 
-			var _state = this.state,
-			    categoryList = _state.categoryList,
-			    content = _state.content,
-			    title = _state.title,
-			    category = _state.category;
+			var _state2 = this.state,
+			    categoryList = _state2.categoryList,
+			    content = _state2.content,
+			    title = _state2.title,
+			    category = _state2.category;
 
 			return _react2.default.createElement(
 				'div',
@@ -63130,7 +63159,7 @@ var Write = function (_Component) {
 									_react2.default.createElement(_antd.Input, { placeholder: '\u8BF7\u8F93\u5165\u6587\u7AE0\u6807\u9898',
 										value: title,
 										onChange: function onChange(e) {
-											return _this4.storeData({ 'title': e.target.value });
+											return _this5.storeData({ 'title': e.target.value });
 										} })
 								)
 							)
@@ -63157,7 +63186,7 @@ var Write = function (_Component) {
 											placeholder: '\u8BF7\u9009\u62E9\u6587\u7AE0\u5206\u7C7B',
 											optionFilterProp: 'children',
 											onChange: function onChange(val) {
-												return _this4.storeData({ 'category': val });
+												return _this5.storeData({ 'category': val });
 											},
 											filterOption: function filterOption(input, option) {
 												return option.props.value.toLowerCase().indexOf(input.toLowerCase()) >= 0;
@@ -63184,19 +63213,33 @@ var Write = function (_Component) {
 						_react2.default.createElement(
 							_antd.Col,
 							{ span: 12 },
-							_react2.default.createElement(_antd.Input, { type: 'textarea', rows: 10,
+							_react2.default.createElement(_antd.Input, { type: 'textarea',
+								className: 'mark-content',
 								value: content,
 								onChange: function onChange(e) {
-									_this4.storeData({ content: e.target.value }, _this4.parserHtml);
+									_this5.storeData({ content: e.target.value }, _this5.parserHtml);
 								} })
 						),
 						_react2.default.createElement(
 							_antd.Col,
 							{ span: 12 },
-							_react2.default.createElement('div', { className: 'preview-content',
+							_react2.default.createElement('div', { className: 'mark-content',
 								ref: function ref(preview) {
-									_this4.previewDom = preview;
+									_this5.previewDom = preview;
 								} })
+						)
+					),
+					_react2.default.createElement(
+						_antd.Row,
+						{ className: 'submit-btn',
+							type: 'flex', justify: 'center' },
+						_react2.default.createElement(
+							_antd.Button,
+							{ type: 'primary',
+								size: 'large',
+								loading: this.state.loading,
+								onClick: this.submitData },
+							'\u63D0\u4EA4\u535A\u5BA2'
 						)
 					)
 				)

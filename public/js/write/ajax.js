@@ -8,10 +8,16 @@ const categoryApi = ()=>{
 			return res['data']
 		})
 };
-
-
+const submitBlogApi = (data)=>{
+	let api = '/blog.action'
+	return axios.post(api,data)
+				.then((res)=>{
+					return res['data']
+				})
+}
 export {
-	categoryApi
+	categoryApi,
+	submitBlogApi
 }
 
 
