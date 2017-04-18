@@ -34,7 +34,7 @@ module.exports = (ctx)=>{
 					});
 
 					let html = render({
-						templateName:ejsName,
+						viewName:ejsName,
 						hasUser:resCtx.hasUser
 					})
 

@@ -18,7 +18,7 @@ module.exports = (ctx)=>{
 				res.setHeader('Set-Cookie',cookieStr(3600))
 			}
 			//设置白名单
-			const whiteNameList=['/name_slashhuang'];
+			const whiteNameList=['/slashhuang'];
 			//登录
 			if(whiteNameList.indexOf(url)>-1){
 				res.setHeader('Set-Cookie',cookieStr(3600))
