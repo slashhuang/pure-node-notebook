@@ -42,6 +42,7 @@ module.exports = (ctx)=>{
 						'Content-Type':'text/html'
 					});
 					resCtx.body = html;
+					resCtx.statusCode=200;
 					resolve()
 				}else{
 					//重定向的功能

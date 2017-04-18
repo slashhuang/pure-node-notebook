@@ -15,7 +15,7 @@ $b-screen:800px; //适配PC
 // 	float ==> block + inline-block + flex
 // }*/
 .footer{
-	background:linear-gradient( 45deg, gray, coral );
+	background:linear-gradient( 45deg, #000, coral );
 	padding:5px 30px;
 	.nav{
 		margin-left:180px;
@@ -61,7 +61,7 @@ $b-screen:800px; //适配PC
 }
 .header{
 	border-bottom:1px solid #fff;
-	background:#efd5b8;
+	background:linear-gradient( 45deg,#fff , #000 );
 	.nav{
 		margin-left:130px;
 	}
@@ -152,6 +152,11 @@ $b-screen:800px; //适配PC
 		li{		
 			a{
 				transition:ease .2s;
+				color: #108ee9;
+			    background: transparent;
+			    text-decoration: none;
+			    outline: none;
+			    cursor: pointer;
 				&:hover{
 					color:yellow
 				}
@@ -165,6 +170,7 @@ $b-screen:800px; //适配PC
 $blue:#0f88eb;
 .search{
 	#search{
+		height:30px;
 		transition:ease .5s;
 		border-radius:2px;
 		font-size:14px;
@@ -177,7 +183,7 @@ $blue:#0f88eb;
 .footer{
 	min-height:140px;
 }
-.content{
+.main-module{
 	min-height:55%;
 }
 

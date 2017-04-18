@@ -16,10 +16,14 @@ var  AddResolve = (obj)=>{
 module.exports =  {
         watch: true,
         entry: {
-            index:'./js/index.js',
+            index:'./js/index/index.js',
+            write:"./js/write/index.js",
+            list:"./js/list/index.js",
+            about:"./js/about/index.js",
             common: [
-                'jquery',
-                "reset",
+                'react',
+                "react-dom",
+                 "reset",
                 'common_lib'
             ]
         },

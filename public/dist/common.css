@@ -81,7 +81,7 @@ body {
 // 	float ==> block + inline-block + flex
 // }*/
 .footer {
-  background: linear-gradient(45deg, gray, coral);
+  background: linear-gradient(45deg, #000, coral);
   padding: 5px 30px; }
   .footer .nav {
     margin-left: 180px; }
@@ -115,7 +115,7 @@ body {
 
 .header {
   border-bottom: 1px solid #fff;
-  background: #efd5b8; }
+  background: linear-gradient(45deg, #fff, #000); }
   .header .nav {
     margin-left: 130px; }
 
@@ -202,13 +202,19 @@ body {
               height: 40px;
               border-radius: 100%; } }
     .header .nav li a, .footer .nav li a {
-      transition: ease .2s; }
+      transition: ease .2s;
+      color: #108ee9;
+      background: transparent;
+      text-decoration: none;
+      outline: none;
+      cursor: pointer; }
       .header .nav li a:hover, .footer .nav li a:hover {
         color: yellow; }
       .header .nav li a img, .footer .nav li a img {
         margin-right: 1px; }
 
 .search #search {
+  height: 30px;
   transition: ease .5s;
   border-radius: 2px;
   font-size: 14px;
@@ -219,7 +225,7 @@ body {
 .footer {
   min-height: 140px; }
 
-.content {
+.main-module {
   min-height: 55%; }
 
 html, body {
@@ -229,7 +235,6 @@ html, body {
   height: 100%; }
 
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, lengend, button, input, textarea, form, th, td {
-  min-height: 100%;
   margin: 0;
   padding: 0;
   -webkit-margin-before: 0;

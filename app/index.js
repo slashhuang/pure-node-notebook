@@ -43,7 +43,7 @@ class App {
 					//标示用户
 					hasUser:false,
 					statusMessage:'resolve ok',
-					statusCode:200, //状态码
+					statusCode:404, //状态码
 					headers:{},//response的返回报文
 					body:'',//返回给前端的内容区
 				}
