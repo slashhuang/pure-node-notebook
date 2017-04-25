@@ -3,22 +3,25 @@
  * 处理客户端数据
  */
 
-
- // request: query + body + method
-
+const Url =require('url')
+// request: query + body + method
 module.exports = (ctx)=>{
 	//原型链readable stream eventEmitter
 	let { method,url } = ctx.req;
 	let { reqCtx } = ctx;
-
-	method = method.toLowerCase();
+	//parse querystring
+	let urlObj =  Url.parse(url,true);
+	method =  method.toLowerCase();
+	Object.assign(reqCtx,{
+		pathname:urlObj['pathname'],
+		query : urlObj['query'],
+		method
+	})
 	return Promise.resolve({
 		then:(resolve,reject)=>{
-
 			if(method == 'post'){
 				let data = [];
-
-		 		//paused flow 
+		 		//paused flow
 		 		//paused ===> flow
 		 		ctx.req.on('data',(chunk)=>{
 			 		data.push(chunk);
@@ -32,5 +35,5 @@ module.exports = (ctx)=>{
 				resolve()
 			}
 		}
-	})	 		
-} 
+	})
+}

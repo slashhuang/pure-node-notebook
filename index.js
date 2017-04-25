@@ -1,5 +1,5 @@
 
-/* 
+/*
  * created by slashhuang
  * 17/3/18
  */
@@ -18,6 +18,12 @@ server.use(urlParser);
 server.use(apiServer);
 server.use(staticServer);
 server.use(viewServer);
+
+//连接数据库
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/blog');
+mongoose.connection.on('error', (err)=>console.error(`connection error:${error}`))
+    .once('open', ()=>console.log('connected to mongodb'));
 
 //启动app
 http.createServer(server.initServer()).listen(PORT,()=>{
