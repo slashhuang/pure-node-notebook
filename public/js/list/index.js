@@ -3,7 +3,8 @@
  * @Author slashhuang
  * 17/4/25
  */
-require('../detail/scss/index.scss')
+require('./scss/index.scss')
+
 import { blogListApi } from './ajax'
 import React,{ Component }  from 'react'
 import { render } from 'react-dom'
@@ -54,7 +55,7 @@ class ListPanel extends Component{
                         if(blogList.length>0){
                              this.renderList()
                          }else{
-                            <Spin/>
+                            <Spin size='large' tip="加载中..." className='spinner'/>
                          }
                     }
                 }

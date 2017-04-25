@@ -114820,7 +114820,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @Author slashhuang
  * 17/4/25
  */
-__webpack_require__(1178);
+__webpack_require__(1184);
 
 var ListPanel = function (_Component) {
     _inherits(ListPanel, _Component);
@@ -114913,7 +114913,7 @@ var ListPanel = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container clearfix' },
-                blogList.length > 0 ? this.renderList() : _react2.default.createElement(_antd.Spin, null)
+                blogList.length > 0 ? this.renderList() : _react2.default.createElement(_antd.Spin, { size: 'large', tip: '\u52A0\u8F7D\u4E2D...', className: 'spinner' })
             );
         }
     }]);
@@ -121269,12 +121269,7 @@ exports.encode = exports.stringify = __webpack_require__(1180);
 
 
 /***/ }),
-/* 1178 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 1178 */,
 /* 1179 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -121497,6 +121492,12 @@ var blogListApi = exports.blogListApi = function blogListApi() {
         return res['data'];
     });
 };
+
+/***/ }),
+/* 1184 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 ],[966]);

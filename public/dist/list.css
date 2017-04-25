@@ -76,4 +76,10 @@
   .widgets {
     width: 0%; } }
 
+.spinner {
+  text-align: center;
+  width: 100%;
+  padding-top: 40px;
+  font-size: 16px; }
+
 /*# sourceMappingURL=list.css.map*/
