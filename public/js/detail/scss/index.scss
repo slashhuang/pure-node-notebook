@@ -23,7 +23,7 @@ $b-screen:800px; //适配PC
         width: 100-$l
     }
 }
-@media screen and (min-width:$s-screen)  and (max-width: $m-screen){
+@media screen and (max-width: $m-screen){
     $l:100%;
     .blog-detail{
           width:$l

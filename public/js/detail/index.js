@@ -25,7 +25,7 @@ class DetailPanel extends Component{
         let {title,category} = this.state.detail
         return  <div className='blog-head clearfix'>
                     <div className='blog-title'>{title}</div>
-                    <div className='blog-category'>{category}</div>
+                    <div className='blog-category'>标签:{category}</div>
                 </div>
     }
     renderBlog(){

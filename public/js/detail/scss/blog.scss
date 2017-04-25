@@ -14,12 +14,12 @@ $m-screen:648px; //适配ipad
 }
 .blog-head{
     .blog-title{
+        color:#2ca6cb;
         font-size:18px;
     }
     .blog-category{
         font-size:14px;
         vertical-align: bottom;
-        text-align: right
     }
     padding-bottom:2px;
     border-bottom:1px solid $e6;
@@ -27,8 +27,9 @@ $m-screen:648px; //适配ipad
 
 $base:12px;
 .markdown{
-    *{
-        white-space: break-word
+    * {
+       word-wrap:break-word;
+       word-break:break-all
     }
     //设置h1到h6
     @for $i from 1 through 6 {
@@ -45,9 +46,26 @@ $base:12px;
         line-height: 1.7em;
     }
     code{
+        width: 100%;
         display: block;
         padding: 0.5em;
         background: #002b36;
         color: #839496;
     }
+    blockquote{
+        border-left: 0.2em solid #efd5b8;
+        margin: .65em 0 .65em 1%;
+        padding-left: 1%;
+        line-height: 1.5;
+        color: #808080;
+    }
 }
+
+
+
+
+
+
+
+
+

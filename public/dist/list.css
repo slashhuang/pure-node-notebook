@@ -9,14 +9,15 @@
   padding-bottom: 2px;
   border-bottom: 1px solid #e6e6e6; }
   .blog-head .blog-title {
+    color: #2ca6cb;
     font-size: 18px; }
   .blog-head .blog-category {
     font-size: 14px;
-    vertical-align: bottom;
-    text-align: right; }
+    vertical-align: bottom; }
 
 .markdown * {
-  white-space: break-word; }
+  word-wrap: break-word;
+  word-break: break-all; }
 
 .markdown h1 {
   font-size: 22px;
@@ -50,10 +51,18 @@
   line-height: 1.7em; }
 
 .markdown code {
+  width: 100%;
   display: block;
   padding: 0.5em;
   background: #002b36;
   color: #839496; }
+
+.markdown blockquote {
+  border-left: 0.2em solid #efd5b8;
+  margin: .65em 0 .65em 1%;
+  padding-left: 1%;
+  line-height: 1.5;
+  color: #808080; }
 
 .blog-detail, .widgets {
   float: left; }
@@ -70,7 +79,7 @@
   .widgets {
     width: 40%; } }
 
-@media screen and (min-width: 480px) and (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .blog-detail {
     width: 100%; }
   .widgets {
@@ -81,5 +90,7 @@
   width: 100%;
   padding-top: 40px;
   font-size: 16px; }
+  .spinner .ant-spin-dot {
+    margin: auto; }
 
 /*# sourceMappingURL=list.css.map*/

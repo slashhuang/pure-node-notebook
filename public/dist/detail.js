@@ -114870,6 +114870,7 @@ var DetailPanel = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'blog-category' },
+                    '\u6807\u7B7E:',
                     category
                 )
             );
