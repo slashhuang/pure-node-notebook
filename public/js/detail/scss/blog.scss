@@ -1,0 +1,53 @@
+$e6:#e6e6e6;
+$m-screen:648px; //适配ipad
+
+@media screen and (min-width:$m-screen) {
+   .blog-head{
+        .blog-title{
+            display: inline-block
+        }
+        .blog-category{
+            display: inline-block;
+            margin-left:20px;
+        }
+    }
+}
+.blog-head{
+    .blog-title{
+        font-size:18px;
+    }
+    .blog-category{
+        font-size:14px;
+        vertical-align: bottom;
+        text-align: right
+    }
+    padding-bottom:2px;
+    border-bottom:1px solid $e6;
+}
+
+$base:12px;
+.markdown{
+    *{
+        white-space: break-word
+    }
+    //设置h1到h6
+    @for $i from 1 through 6 {
+      h#{$i} {
+        font-size:$base+12-$i*2;
+        margin:$base - $i*2 0;
+      }
+    }
+    h1{
+        border-bottom:1px solid $e6;
+    }
+    p{
+        font-size:$base+2px;
+        line-height: 1.7em;
+    }
+    code{
+        display: block;
+        padding: 0.5em;
+        background: #002b36;
+        color: #839496;
+    }
+}

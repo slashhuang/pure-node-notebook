@@ -1,2 +1,79 @@
+@media screen and (min-width: 648px) {
+  .blog-head .blog-title {
+    display: inline-block; }
+  .blog-head .blog-category {
+    display: inline-block;
+    margin-left: 20px; } }
+
+.blog-head {
+  padding-bottom: 2px;
+  border-bottom: 1px solid #e6e6e6; }
+  .blog-head .blog-title {
+    font-size: 18px; }
+  .blog-head .blog-category {
+    font-size: 14px;
+    vertical-align: bottom;
+    text-align: right; }
+
+.markdown * {
+  white-space: break-word; }
+
+.markdown h1 {
+  font-size: 22px;
+  margin: 10px 0; }
+
+.markdown h2 {
+  font-size: 20px;
+  margin: 8px 0; }
+
+.markdown h3 {
+  font-size: 18px;
+  margin: 6px 0; }
+
+.markdown h4 {
+  font-size: 16px;
+  margin: 4px 0; }
+
+.markdown h5 {
+  font-size: 14px;
+  margin: 2px 0; }
+
+.markdown h6 {
+  font-size: 12px;
+  margin: 0px 0; }
+
+.markdown h1 {
+  border-bottom: 1px solid #e6e6e6; }
+
+.markdown p {
+  font-size: 14px;
+  line-height: 1.7em; }
+
+.markdown code {
+  display: block;
+  padding: 0.5em;
+  background: #002b36;
+  color: #839496; }
+
+.blog-detail, .widgets {
+  float: left; }
+
+@media screen and (min-width: 800px) {
+  .blog-detail {
+    width: 70%; }
+  .widgets {
+    width: 30%; } }
+
+@media screen and (min-width: 700px) and (max-width: 800px) {
+  .blog-detail {
+    width: 60%; }
+  .widgets {
+    width: 40%; } }
+
+@media screen and (min-width: 480px) and (max-width: 700px) {
+  .blog-detail {
+    width: 100%; }
+  .widgets {
+    width: 0%; } }
 
 /*# sourceMappingURL=detail.css.map*/

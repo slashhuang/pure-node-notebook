@@ -114835,7 +114835,11 @@ var DetailPanel = function (_Component) {
         }
 
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DetailPanel.__proto__ || Object.getPrototypeOf(DetailPanel)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            detail: {}
+            detail: {
+                title: '',
+                content: "",
+                category: ""
+            }
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -114849,12 +114853,34 @@ var DetailPanel = function (_Component) {
             });
         }
     }, {
+        key: 'renderTitle',
+        value: function renderTitle() {
+            var _state$detail = this.state.detail,
+                title = _state$detail.title,
+                category = _state$detail.category;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'blog-head clearfix' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'blog-title' },
+                    title
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'blog-category' },
+                    category
+                )
+            );
+        }
+    }, {
         key: 'renderBlog',
         value: function renderBlog() {
             var detail = this.state.detail;
 
-            if (detail) {
-                return detail.content;
+            if (detail.content) {
+                return _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: detail.content } });
             } else {
                 return _react2.default.createElement(_antd.Spin, null);
             }
@@ -114864,9 +114890,18 @@ var DetailPanel = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'container' },
-                _react2.default.createElement('div', { className: 'blog-detail',
-                    dangerouslySetInnerHTML: { __html: this.renderBlog() } })
+                { className: 'container clearfix' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'blog-detail markdown' },
+                    this.renderTitle(),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'blog-content' },
+                        this.renderBlog()
+                    )
+                ),
+                _react2.default.createElement('div', { className: 'widgets' })
             );
         }
     }]);

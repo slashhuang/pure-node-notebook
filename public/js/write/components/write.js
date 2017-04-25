@@ -9,7 +9,8 @@ import React ,{ Component } from 'react';
 import { render } from 'react-dom';
 import { categoryListApi,submitBlogApi  } from '../ajax'
 
-import { Row, Col,Menu, Input,Select, Button, Icon } from 'antd';
+import { Row, Col,Menu, Input,Select, Button, Icon,message } from 'antd';
+
 const Option = Select.Option;
 
 //markdown 功能
@@ -49,7 +50,11 @@ class Write extends Component{
         this.setState({},()=>submitBlogApi({title,category,content:previewContent,})
             .then(res=>{
                 this.setState({loading:false})
-                this.dialogRef.handleState(true,res['_id'])
+                if(res.error){
+                    message.error(res.msg);
+                }else{
+                    this.dialogRef.handleState(true,res['_id'])
+                }
             }))
     }
     storeData(obj,callback){
@@ -121,7 +126,7 @@ class Write extends Component{
                                     }}/>
                         </Col>
                         <Col span={12}>
-                            <div className="mark-content"
+                            <div className="mark-content-preview"
                                 dangerouslySetInnerHTML={{__html:previewContent}}>
                             </div>
                         </Col>

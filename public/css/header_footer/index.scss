@@ -1,6 +1,11 @@
 body{
 	font-size:16px;
 }
+.main-module{
+    min-height:55%;
+    max-width: 94%;
+    margin:20px auto;
+}
 .clear-fix{
 	&:after{
 		content:'';
@@ -149,7 +154,7 @@ $b-screen:800px; //适配PC
 				}
             }
 		}
-		li{		
+		li{
 			a{
 				transition:ease .2s;
 				color: #108ee9;
@@ -183,9 +188,7 @@ $blue:#0f88eb;
 .footer{
 	min-height:140px;
 }
-.main-module{
-	min-height:55%;
-}
+
 
 
 

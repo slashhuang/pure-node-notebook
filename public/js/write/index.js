@@ -4,7 +4,6 @@
  * 写博客界面
  * 因为这块代码只能登陆才可见，所以暂时可以不考虑首屏性能问题
  */
-import 'antd/dist/antd.css'  // or 'antd/dist/antd.less'
 import './scss/index.scss'
 import React,{ Component }  from 'react'
 import { render } from 'react-dom'
