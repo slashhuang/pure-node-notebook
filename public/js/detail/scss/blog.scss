@@ -27,6 +27,11 @@ $m-screen:648px; //适配ipad
 
 $base:12px;
 .markdown{
+    $blue: #108ee9;
+    $brow: #efd5b8;
+    $l-gray:#808080;
+    $d-green:#002b36;
+    $s-light-gray:#839496;
     * {
        word-wrap:break-word;
        word-break:break-all
@@ -49,15 +54,24 @@ $base:12px;
         width: 100%;
         display: block;
         padding: 0.5em;
-        background: #002b36;
-        color: #839496;
+        background:  $d-green;
+        color: $s-light-gray;
     }
     blockquote{
-        border-left: 0.2em solid #efd5b8;
+        border-left: 0.2em solid $brow;
         margin: .65em 0 .65em 1%;
         padding-left: 1%;
         line-height: 1.5;
-        color: #808080;
+        color: $l-gray;
+    }
+    a{
+        color:$blue;
+        background: transparent;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        -webkit-transition: color .3s ease;
+        transition: color .3s ease;
     }
 }
 

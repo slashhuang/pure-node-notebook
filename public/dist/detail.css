@@ -64,6 +64,15 @@
   line-height: 1.5;
   color: #808080; }
 
+.markdown a {
+  color: #108ee9;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease; }
+
 .blog-detail, .widgets {
   float: left; }
 
