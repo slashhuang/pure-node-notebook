@@ -14,18 +14,18 @@ const mime = require('mime');
 const urlrewriteMap = require('./urlrewrite');
 //路由 routes  ==>  controller ==> 结果 MVC
 module.exports = (ctx)=>{
-	let { req,resCtx } = ctx;
-	let { url } = req;
+	let { reqCtx,resCtx } = ctx;
+	let { pathname } = reqCtx;
 	return Promise.resolve({
 		then:(resolve,reject)=>{
 
-			if(url.match('action') || url.match(/\./)){
+			if(pathname.match('action') || pathname.match(/\./)){
 				resolve()
 			}else{
-				const viewPath = path.resolve(__dirname,'ejs'); 
-				let ejsName = urlrewriteMap[url];
+				const viewPath = path.resolve(__dirname,'ejs');
+				let ejsName = urlrewriteMap[pathname];
 				if(ejsName){
-					let layoutPath=path.resolve(viewPath,'layout.ejs');					
+					let layoutPath=path.resolve(viewPath,'layout.ejs');
 					let layoutHtml = fs.readFileSync(layoutPath,'utf8');
 					// new Function
 					let render = ejs.compile(layoutHtml,{
@@ -55,10 +55,10 @@ module.exports = (ctx)=>{
 					resolve()
 				}
 			}
-			
-			
-			// if(urlMap[url]){
-				
+
+
+			// if(pathnameMap[pathname]){
+
 			// 	let htmlPath=path.resolve(viewPath,viewName);
 			// 	resCtx.headers = Object.assign(resCtx.headers,{
 			// 		'Content-Type':mime.lookup(htmlPath)

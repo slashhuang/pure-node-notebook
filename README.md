@@ -4,16 +4,16 @@
 > npm、package.json、node_modules及项目架构初始化
 ```bash
 	git clone git@github.com:slashhuang/pure-node-notebook-step.git
-	git checkout lesson1 
-	npm install 
+	git checkout lesson1
+	npm install
 	npm start
 ```
 
 - 第二课 静态服务器
 > http协议、fs、path模块及创建项目静态服务器
 ```bash
-	git checkout lesson2 
-	npm install 
+	git checkout lesson2
+	npm install
 	npm start
 ```
 
@@ -24,8 +24,8 @@
 > 引入对接前端ajax的api服务体系
 
 ```bash
-	git checkout lesson3 
-	npm install 
+	git checkout lesson3
+	npm install
 	npm start
 ```
 
@@ -37,7 +37,7 @@
 
 ```bash
 	git checkout lesson4
-	npm install 
+	npm install
 	npm start
 ```
 
@@ -51,11 +51,11 @@
 
 ```bash
 	git checkout lesson5
-	npm install 
+	npm install
 	npm start
 ```
 
-- 第六课 
+- 第六课
 
 1. 引入EJS中间件处理服务端渲染
 
@@ -63,11 +63,11 @@
 
 ```bash
 	git checkout lesson6
-	npm install 
+	npm install
 	npm start
 ```
 
-- 第七课 
+- 第七课
 
 1. 实现Node动态路由/重定向/页面模块划分
 
@@ -92,11 +92,11 @@
 
 ```bash
 	git checkout lesson7
-	npm install 
+	npm install
 	npm start
 ```
 
-- 第八课 
+- 第八课
 
 1. 学习cookie来实现简化版的登录登出
 
@@ -104,9 +104,16 @@
 
 ```bash
 	git checkout lesson8
-	npm install 
+	npm install
 	npm start
 ```
+
+
+
+
+### 参考资料
+
+[mongo shell](https://docs.mongodb.com/manual/reference/mongo-shell/)
 
 
 

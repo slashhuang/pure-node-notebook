@@ -14,7 +14,13 @@ const blogSchema = new Schema({
     category:String
 });
 
+const categorySchema = new Schema({
+    name: String,
+    id:String
+});
+
 
 module.exports = {
-    blogSchema
+    blogSchema,
+    categorySchema
 }

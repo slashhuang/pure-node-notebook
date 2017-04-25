@@ -1,10 +1,23 @@
 //网络请求
 import axios from 'axios';
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+    // Do something with response data
+    return response['data'];
+  }, function (error) {
+    // Do something with response error
+    alert(`error ${error}`)
+  });
 
-
-const categoryApi = ()=>{
+const categoryListApi = (category)=>{
+    let api = '/categoryList.action'
+    return axios.get(api).then((res)=>{
+            return res['data']
+        })
+};
+const categoryApi = (category)=>{
 	let api = '/category.action'
-	return axios.get(api).then((res)=>{
+	return axios.post(api,{params:category}).then((res)=>{
 			return res['data']
 		})
 };
@@ -17,7 +30,8 @@ const submitBlogApi = (data)=>{
 }
 export {
 	categoryApi,
-	submitBlogApi
+	submitBlogApi,
+    categoryListApi
 }
 
 

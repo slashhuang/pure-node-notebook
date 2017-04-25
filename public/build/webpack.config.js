@@ -18,6 +18,7 @@ module.exports =  {
         entry: {
             index:'./js/index/index.js',
             write:"./js/write/index.js",
+            detail:"./js/detail/index.js",
             list:"./js/list/index.js",
             about:"./js/about/index.js",
             common: [

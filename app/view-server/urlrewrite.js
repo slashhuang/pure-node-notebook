@@ -18,6 +18,7 @@ const urlrewriteMap = {
 	'/':'index',
 	'/list':"list",
 	'/write':'write',
-	'/about':'about'
+	'/about':'about',
+    '/blog':"detail"
 };
 module.exports=urlrewriteMap

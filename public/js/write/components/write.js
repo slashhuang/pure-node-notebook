@@ -7,7 +7,7 @@
 
 import React ,{ Component } from 'react';
 import { render } from 'react-dom';
-import { categoryApi,submitBlogApi  } from '../ajax'
+import { categoryListApi,submitBlogApi  } from '../ajax'
 
 import { Row, Col,Menu, Input,Select, Button, Icon } from 'antd';
 const Option = Select.Option;
@@ -20,6 +20,7 @@ marked.setOptions({
     return highlight.highlightAuto(code).value;
   }
 });
+import Dialog from './Dialog'
 export default
 class Write extends Component{
     constructor(){
@@ -27,6 +28,7 @@ class Write extends Component{
         this.state={
             categoryList:[],
             content:"",
+            previewContent:'',
             title:'',
             category:''
         }
@@ -34,25 +36,21 @@ class Write extends Component{
         this.submitData = this.submitData.bind(this);
     }
     componentDidMount(){
-        categoryApi().then(categoryList=>{
-            this.setState({
-                categoryList:categoryList
-            })
+        categoryListApi().then(categoryList=>{
+            this.setState({categoryList})
         })
     }
     submitData(){
         let {
-            categoryList,
-            ...blogData
+            title,
+            category,
+            previewContent,
         } = this.state;
-        this.setState({
-            loading:true
-        })
-        submitBlogApi(blogData).then(res=>{
-            this.setState({
-                loading:false
-            })
-        })
+        this.setState({},()=>submitBlogApi({title,category,content:previewContent,})
+            .then(res=>{
+                this.setState({loading:false})
+                this.dialogRef.handleState(true,res['_id'])
+            }))
     }
     storeData(obj,callback){
         this.setState(obj,callback)
@@ -60,8 +58,8 @@ class Write extends Component{
     parserHtml(){
         let {content} = this.state;
         if(content){
-            marked(content,(err,_content)=>{
-                this.previewDom.innerHTML = _content
+            marked(content,(err,previewContent)=>{
+                this.setState({previewContent})
             })
         }
     }
@@ -70,7 +68,8 @@ class Write extends Component{
             categoryList,
             content,
             title,
-            category
+            category,
+            previewContent
         } = this.state;
         return (
              <div className="content">
@@ -123,7 +122,7 @@ class Write extends Component{
                         </Col>
                         <Col span={12}>
                             <div className="mark-content"
-                                ref={preview =>{this.previewDom = preview}}>
+                                dangerouslySetInnerHTML={{__html:previewContent}}>
                             </div>
                         </Col>
                     </Row>
@@ -136,6 +135,9 @@ class Write extends Component{
                               提交博客
                             </Button>
                     </Row>
+                    <div>
+                        <Dialog ref={(dialogRef=>this.dialogRef=dialogRef)}/>
+                    </div>
                  </div>
         )
     }

@@ -18,11 +18,11 @@
     }
     get(url,callback){
         let getMap  = this.routerMap.get;
-        getMap.url = callback
+        getMap[url] = callback
     }
     post(url,callback){
         let postMap  = this.routerMap.post;
-        postMap.url = callback
+        postMap[url] = callback
     }
     routes(ctx){
         let { pathname,method } = ctx.reqCtx;

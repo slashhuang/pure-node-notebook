@@ -2,7 +2,7 @@
  * api middleware
  */
 
-const router = require('./api')
+const router = require('./ajax_map')
 
 module.exports=(ctx)=>{
  	let { resCtx,reqCtx } = ctx;
