@@ -8,6 +8,7 @@ $base:14px;
     $l-gray:#808080;
     $d-green:#002b36;
     $s-light-gray:#839496;
+
     * {
        word-wrap:break-word;
        word-break:break-all
@@ -23,13 +24,20 @@ $base:14px;
         font-size:$base+2px;
         line-height: 1.7em;
     }
-    code{
-        width: 100%;
-        display: block;
-        padding: 0.5em;
-        background:  $d-green;
-        color: $s-light-gray;
+    pre{
+         code{
+            width: 100%;
+            display: block;
+            color: $s-light-gray;
+        }
     }
+    code{
+        display: inline-block;
+        background:  $d-green;
+        color:  $blue;
+        padding: 0.1em 0.5em;
+    }
+
     blockquote{
         border-left: 0.4em solid $brow;
         margin: .8em 0 .8em 1%;

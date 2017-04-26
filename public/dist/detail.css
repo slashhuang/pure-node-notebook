@@ -30,12 +30,16 @@
   font-size: 16px;
   line-height: 1.7em; }
 
-.markdown code {
+.markdown pre code {
   width: 100%;
   display: block;
-  padding: 0.5em;
-  background: #002b36;
   color: #839496; }
+
+.markdown code {
+  display: inline-block;
+  background: #002b36;
+  color: #108ee9;
+  padding: 0.1em 0.5em; }
 
 .markdown blockquote {
   border-left: 0.4em solid #efd5b8;
@@ -54,6 +58,7 @@
   transition: color .3s ease; }
 
 .blog-content {
+  padding: 1em 0;
   border-bottom: 1px solid #ddd; }
 
 .blog-head {
