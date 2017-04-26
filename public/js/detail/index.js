@@ -8,50 +8,36 @@ import { blogDetailApi } from './ajax'
 import React,{ Component }  from 'react'
 import { render } from 'react-dom'
 import { Spin } from 'antd'
-class DetailPanel extends Component{
+import DetailPanel  from '../components/Detail.js'
+class DetailIndex extends Component{
     state={
-        detail:{
-            title:'',
-            content:"",
-            category:""
-        }
+        detail:null
     }
     componentDidMount(){
         blogDetailApi().then(detail=>{
             this.setState({detail})
         })
     }
-    renderTitle(){
-        let {title,category} = this.state.detail
-        return  <div className='blog-head clearfix'>
-                    <div className='blog-title'>{title}</div>
-                    <div className='blog-category'>标签:{category}</div>
-                </div>
-    }
-    renderBlog(){
-        let {detail} = this.state
-        if(detail.content){
-            return <div dangerouslySetInnerHTML={{__html:detail.content}}></div>
-        }else{
-            return <Spin />
-        }
-    }
     render(){
+        let {detail} = this.state
         return (
             <div className='container clearfix'>
-                <div className="blog-detail markdown">
-                     {this.renderTitle()}
-                    <div className='blog-content'>
-                        {this.renderBlog()}
-                    </div>
-                </div>
+               {
+                do{
+                    if(detail){
+                        <DetailPanel detail={detail}/>
+                    }else{
+                        <Spin size='large' tip="加载中..." className='spinner'/>
+                    }
+                }
+               }
                 <div className="widgets">
                 </div>
             </div>
         )
     }
 }
-render(<DetailPanel />,document.getElementById('mod-detail'))
+render(<DetailIndex />,document.getElementById('mod-detail'))
 
 
 

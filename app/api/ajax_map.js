@@ -4,7 +4,7 @@
  * api server
  */
 
-let { $_saveBlog,$_saveCategory,$_getCategoryList,$_getBlogDetail } = require('./mongo')
+let { $_saveBlog,$_saveCategory,$_getCategoryList,$_getBlogDetail,$_getBlogList } = require('./mongo')
 let Router =  require('./router')
 const router = new Router()
 router.post('/blog.action',ctx=>{
@@ -17,6 +17,9 @@ router.post('/category.action',ctx=>{
 });
 router.get('/categoryList.action',ctx=>{
     return $_getCategoryList()
+});
+router.get('/blogList.action',ctx=>{
+    return $_getBlogList()
 });
 router.get('/blogDetail.action',ctx=>{
     let {query} = ctx.reqCtx

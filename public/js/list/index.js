@@ -9,6 +9,8 @@ import { blogListApi } from './ajax'
 import React,{ Component }  from 'react'
 import { render } from 'react-dom'
 import { Spin } from 'antd'
+import DetailPanel  from '../components/Detail.js'
+
 class ListPanel extends Component{
     state={
         blogList:[]
@@ -18,27 +20,8 @@ class ListPanel extends Component{
             this.setState({blogList})
         })
     }
-    renderTitle(detail){
-        let {title,category} = detail
-        return  <div className='blog-head clearfix'>
-                    <div className='blog-title'>{title}</div>
-                    <div className='blog-category'>{category}</div>
-                </div>
-    }
-    renderBlogContent(detail){
-        if(detail.content){
-            return <div dangerouslySetInnerHTML={{__html:detail.content}}></div>
-        }else{
-            return <Spin />
-        }
-    }
     renderBlog(detail){
-        return <div className="blog-detail markdown">
-                     {this.renderTitle(detail)}
-                    <div className='blog-content'>
-                        {this.renderBlogContent(detail)}
-                    </div>
-                </div>
+        return <DetailPanel detail={detail}/>
     }
     renderList(){
         let { blogList } =this.state;

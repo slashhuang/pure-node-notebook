@@ -1,6 +1,18 @@
 body{
 	font-size:16px;
+    background: #ddd !important;
 }
+//加载
+.spinner{
+    text-align: center;
+    width: 100%;
+    padding-top:40px;
+    font-size:16px;
+    .ant-spin-dot{
+         margin:auto
+    }
+}
+//主内容区模块
 .main-module{
     min-height:55%;
     max-width: 94%;

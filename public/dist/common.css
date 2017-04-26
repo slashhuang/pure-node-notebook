@@ -36,7 +36,16 @@
   font-weight: bold; }
 
 body {
+  font-size: 16px;
+  background: #ddd !important; }
+
+.spinner {
+  text-align: center;
+  width: 100%;
+  padding-top: 40px;
   font-size: 16px; }
+  .spinner .ant-spin-dot {
+    margin: auto; }
 
 .main-module {
   min-height: 55%;

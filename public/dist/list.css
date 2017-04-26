@@ -9,8 +9,7 @@
   padding-bottom: 2px;
   border-bottom: 1px solid #e6e6e6; }
   .blog-head .blog-title {
-    color: #2ca6cb;
-    font-size: 18px; }
+    color: #2ca6cb; }
   .blog-head .blog-category {
     font-size: 14px;
     vertical-align: bottom; }
@@ -20,34 +19,31 @@
   word-break: break-all; }
 
 .markdown h1 {
-  font-size: 22px;
-  margin: 10px 0; }
+  font-size: 24px;
+  margin-top: 12px; }
 
 .markdown h2 {
-  font-size: 20px;
-  margin: 8px 0; }
+  font-size: 22px;
+  margin-top: 10px; }
 
 .markdown h3 {
-  font-size: 18px;
-  margin: 6px 0; }
+  font-size: 20px;
+  margin-top: 8px; }
 
 .markdown h4 {
-  font-size: 16px;
-  margin: 4px 0; }
+  font-size: 18px;
+  margin-top: 6px; }
 
 .markdown h5 {
-  font-size: 14px;
-  margin: 2px 0; }
+  font-size: 16px;
+  margin-top: 4px; }
 
 .markdown h6 {
-  font-size: 12px;
-  margin: 0px 0; }
-
-.markdown h1 {
-  border-bottom: 1px solid #e6e6e6; }
+  font-size: 14px;
+  margin-top: 2px; }
 
 .markdown p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7em; }
 
 .markdown code {
@@ -74,7 +70,8 @@
   transition: color .3s ease; }
 
 .blog-detail, .widgets {
-  float: left; }
+  float: left;
+  background: #fff; }
 
 @media screen and (min-width: 800px) {
   .blog-detail {
@@ -101,5 +98,9 @@
   font-size: 16px; }
   .spinner .ant-spin-dot {
     margin: auto; }
+
+.container .blog-detail {
+  margin: 20px auto;
+  padding: 1.5em 4%; }
 
 /*# sourceMappingURL=list.css.map*/

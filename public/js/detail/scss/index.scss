@@ -3,7 +3,8 @@ $s-screen:480px; //适配移动端
 $m-screen:700px; //适配ipad
 $b-screen:800px; //适配PC
 .blog-detail,.widgets{
-    float:left
+    float:left;
+    background:#fff;
 }
 @media screen and (min-width:$b-screen){
     $l:70%;

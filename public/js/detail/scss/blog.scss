@@ -15,7 +15,6 @@ $m-screen:648px; //适配ipad
 .blog-head{
     .blog-title{
         color:#2ca6cb;
-        font-size:18px;
     }
     .blog-category{
         font-size:14px;
@@ -25,7 +24,7 @@ $m-screen:648px; //适配ipad
     border-bottom:1px solid $e6;
 }
 
-$base:12px;
+$base:14px;
 .markdown{
     $blue: #108ee9;
     $brow: #efd5b8;
@@ -40,11 +39,8 @@ $base:12px;
     @for $i from 1 through 6 {
       h#{$i} {
         font-size:$base+12-$i*2;
-        margin:$base - $i*2 0;
+        margin-top:$base - $i*2;
       }
-    }
-    h1{
-        border-bottom:1px solid $e6;
     }
     p{
         font-size:$base+2px;
