@@ -1,61 +1,52 @@
-.markdown * {
-  word-wrap: break-word;
-  word-break: break-all; }
-
-.markdown h1 {
-  font-size: 23px;
-  margin-top: 14px; }
-
-.markdown h2 {
-  font-size: 20px;
-  margin-top: 12px; }
-
-.markdown h3 {
-  font-size: 17px;
-  margin-top: 10px; }
-
-.markdown h4 {
-  font-size: 14px;
-  margin-top: 8px; }
-
-.markdown h5 {
-  font-size: 11px;
-  margin-top: 6px; }
-
-.markdown h6 {
-  font-size: 8px;
-  margin-top: 4px; }
-
-.markdown p {
-  font-size: 16px;
-  line-height: 1.7em; }
-
-.markdown pre code {
-  width: 100%;
-  display: block;
-  color: #839496; }
-
-.markdown code {
-  display: inline-block;
-  background: #002b36;
-  color: #108ee9;
-  padding: 0.1em 0.5em; }
-
-.markdown blockquote {
-  border-left: 0.4em solid #efd5b8;
-  margin: .8em 0 .8em 1%;
-  padding-left: 1%;
-  line-height: 1.5;
-  color: #808080; }
-
-.markdown a {
-  color: #108ee9;
-  background: transparent;
-  text-decoration: none;
-  outline: none;
-  cursor: pointer;
-  -webkit-transition: color .3s ease;
-  transition: color .3s ease; }
+.markdown {
+  font-size: 14px; }
+  .markdown * {
+    word-wrap: break-word;
+    word-break: break-all; }
+  .markdown h1 {
+    font-size: 23px;
+    margin-top: 14px; }
+  .markdown h2 {
+    font-size: 20px;
+    margin-top: 12px; }
+  .markdown h3 {
+    font-size: 17px;
+    margin-top: 10px; }
+  .markdown h4 {
+    font-size: 14px;
+    margin-top: 8px; }
+  .markdown h5 {
+    font-size: 11px;
+    margin-top: 6px; }
+  .markdown h6 {
+    font-size: 8px;
+    margin-top: 4px; }
+  .markdown p {
+    font-size: 16px;
+    line-height: 1.7em; }
+  .markdown pre code {
+    width: 100%;
+    display: block;
+    color: #839496; }
+  .markdown code {
+    display: inline-block;
+    background: #002b36;
+    color: #108ee9;
+    padding: 0.1em 0.5em; }
+  .markdown blockquote {
+    border-left: 0.4em solid #efd5b8;
+    margin: .8em 0 .8em 1%;
+    padding-left: 1%;
+    line-height: 1.5;
+    color: #808080; }
+  .markdown a {
+    color: #108ee9;
+    background: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease; }
 
 .blog-content {
   padding: 1em 0;

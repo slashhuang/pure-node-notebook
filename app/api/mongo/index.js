@@ -10,24 +10,15 @@
  const Category = mongoose.model('category',categorySchema)
 
  exports.$_saveBlog = (blog)=>{
-    //去重
-     return Blog.findOne({title:blog.title}).exec()
+    //去重 upsert
+     return Blog.findOneAndUpdate({title:blog.title},blog,{
+        upsert:true
+     }).exec()
      .then(db_blog=>{
         if(db_blog){
-            return {
-                status:-1,
-                data:`blog with title ${blog.title} already exsisted`
-            }
-        }else{
-             return new Blog(blog).save().then(blog=>{
-                 return {
-                    status:1,
-                    data:blog
-                 }
-             })
+            return { status:1,data:db_blog}
         }
      })
-
  }
  exports.$_saveCategory=(category)=>{
      return new Category(category).save().then(category=>{
@@ -55,8 +46,11 @@
      })
  }
  exports.$_getBlogDetail = (query)=>{
-    let _id = query.id
-     return Blog.findOne({_id}).exec().then(blog=>{
+     if(query.id){
+        query._id = query.id
+        delete query.id
+     }
+     return Blog.findOne(query).exec().then(blog=>{
         return {
             status:1,
             data:blog

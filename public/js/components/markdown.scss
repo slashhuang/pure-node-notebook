@@ -8,10 +8,10 @@ $base:14px;
     $l-gray:#808080;
     $d-green:#002b36;
     $s-light-gray:#839496;
-
+    font-size:$base;
     * {
        word-wrap:break-word;
-       word-break:break-all
+       word-break:break-all;
     }
     //设置h1到h6
     @for $i from 1 through 6 {
