@@ -1,6 +1,20 @@
 
 @import "./markdown.scss";
 
+$d:#ddd;
 .blog-content{
-    border-bottom:1px solid #ddd
+    border-bottom:1px solid $d
+}
+.blog-head{
+    border-bottom:1px solid $d;
+}
+.blog-author{
+    text-align: right;
+    .date{
+        font-size:0.8em
+    }
+    .author{
+        font-size:0.8em;
+        margin-left:0.4em;
+    }
 }

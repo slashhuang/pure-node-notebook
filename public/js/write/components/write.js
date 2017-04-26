@@ -47,7 +47,7 @@ class Write extends Component{
             category,
             previewContent,
         } = this.state;
-        this.setState({},()=>submitBlogApi({title,date:Date.now(),category,content:previewContent,})
+        this.setState({},()=>submitBlogApi({title,category,content:previewContent,})
             .then(res=>{
                 this.setState({loading:false})
                 if(res.error){

@@ -121510,7 +121510,8 @@ var DetailPanel = function (_Component) {
             var _props$detail = this.props.detail,
                 title = _props$detail.title,
                 category = _props$detail.category,
-                _id = _props$detail._id;
+                _id = _props$detail._id,
+                date = _props$detail.date;
 
             return _react2.default.createElement(
                 'div',
@@ -121522,6 +121523,26 @@ var DetailPanel = function (_Component) {
                         'a',
                         { href: '/blog?id=' + _id },
                         title
+                    )
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { className: 'blog-author' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'date' },
+                        '\u53D1\u8868\u4E8E ',
+                        date
+                    ),
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'author' },
+                        'by ',
+                        _react2.default.createElement(
+                            'a',
+                            { href: '/about' },
+                            'slashhuang'
+                        )
                     )
                 )
             );
@@ -121557,7 +121578,7 @@ var DetailPanel = function (_Component) {
                         this.renderBlog()
                     ),
                     _react2.default.createElement(
-                        'h3',
+                        'h4',
                         { className: 'blog-category' },
                         '\u6807\u7B7E:',
                         detail.category

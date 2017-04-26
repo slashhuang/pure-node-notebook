@@ -11,7 +11,11 @@ const {Schema} = require('mongoose')
 const blogSchema = new Schema({
     title: String,
     content:String,
-    category:String
+    category:String,
+    date: { type: String, default: ()=>{
+            return new Date().toLocaleString()
+        }
+    }
 });
 
 const categorySchema = new Schema({

@@ -91,7 +91,7 @@ body {
     .footer .personal .motto {
       width: 100%;
       position: absolute;
-      bottom: 1px; }
+      color: #fff; }
 
 .header {
   border-bottom: 1px solid #fff;
