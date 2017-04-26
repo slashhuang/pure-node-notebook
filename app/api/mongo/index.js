@@ -21,7 +21,7 @@
      })
  }
  exports.$_saveCategory=(category)=>{
-     return new Category(category).save().then(category=>{
+     return Category.findOneAndUpdate({name:category.name},category).then(category=>{
          return {
             status:1,
             data:category
