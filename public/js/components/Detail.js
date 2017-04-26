@@ -3,6 +3,7 @@
  * @Author slashhuang
  * 17/4/25
  */
+require('./detail.scss')
 import React,{ Component }  from 'react'
 
 export default
@@ -15,7 +16,6 @@ export default
                             {title}
                         </a>
                     </h1>
-                    <h3 className='blog-category'>标签:{category}</h3>
                 </div>
     }
     renderBlog(){
@@ -27,13 +27,15 @@ export default
         }
     }
     render(){
-        if(this.props.detail){
+        let {detail} = this.props;
+        if(detail){
             return (
                  <div className="blog-detail markdown">
                          {this.renderTitle()}
                         <div className='blog-content'>
                             {this.renderBlog()}
                         </div>
+                        <h3 className='blog-category'>标签:{detail.category}</h3>
                 </div>
             )
         }else{

@@ -121472,12 +121472,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 日志详情组件
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @Author slashhuang
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 17/4/25
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/*
+ * 日志详情组件
+ * @Author slashhuang
+ * 17/4/25
+ */
+__webpack_require__(1185);
 
 var DetailPanel = function (_Component) {
     _inherits(DetailPanel, _Component);
@@ -121507,12 +121509,6 @@ var DetailPanel = function (_Component) {
                         { href: '/blog?id=' + _id },
                         title
                     )
-                ),
-                _react2.default.createElement(
-                    'h3',
-                    { className: 'blog-category' },
-                    '\u6807\u7B7E:',
-                    category
                 )
             );
         }
@@ -121534,7 +121530,9 @@ var DetailPanel = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            if (this.props.detail) {
+            var detail = this.props.detail;
+
+            if (detail) {
                 return _react2.default.createElement(
                     'div',
                     { className: 'blog-detail markdown' },
@@ -121543,6 +121541,12 @@ var DetailPanel = function (_Component) {
                         'div',
                         { className: 'blog-content' },
                         this.renderBlog()
+                    ),
+                    _react2.default.createElement(
+                        'h3',
+                        { className: 'blog-category' },
+                        '\u6807\u7B7E:',
+                        detail.category
                     )
                 );
             } else {
@@ -121555,6 +121559,12 @@ var DetailPanel = function (_Component) {
 }(_react.Component);
 
 exports.default = DetailPanel;
+
+/***/ }),
+/* 1185 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 ],[1002]);
