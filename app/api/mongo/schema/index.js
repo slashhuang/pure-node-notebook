@@ -8,22 +8,27 @@
 //The Mongoose [Schema](#schema_Schema) constructor
 const {Schema} = require('mongoose')
 
-const blogSchema = new Schema({
-    title: String,
-    content:String,
-    rawContent:String,
-    category:String,
-    date: { type: String, default: ()=>{
-            return new Date().toLocaleString()
-        }
-    }
-});
 
 const categorySchema = new Schema({
     name: String,
     id:String
 });
 
+const blogSchema = new Schema({
+    title: String,
+    content:String,
+    rawContent:String,
+    //http://mongoosejs.com/docs/schematypes.html
+    category:categorySchema,
+    date: { type: String, default: ()=>{
+            return new Date().toLocaleString()
+        }
+    }
+},{
+    _id:false,
+    //http://mongoosejs.com/docs/guide.html#strict
+    strict: false
+});
 
 module.exports = {
     blogSchema,

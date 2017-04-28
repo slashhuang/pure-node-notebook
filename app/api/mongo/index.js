@@ -8,20 +8,31 @@
 //The Mongoose [Model](#model_Model) constructor.
  const Blog = mongoose.model('blog', blogSchema)
  const Category = mongoose.model('category',categorySchema)
+ const { transObjectId } = require('./util')
 
  exports.$_saveBlog = (blog)=>{
     //去重 upsert
-     return Blog.findOneAndUpdate({title:blog.title},blog,{
+    let condition = {title:blog.title}
+    let { id } = blog
+    if(id){
+        condition = { _id:transObjectId(id)}
+    }
+    return Blog.findOneAndUpdate(condition,blog,{
         upsert:true
      }).exec()
      .then(db_blog=>{
         if(db_blog){
             return { status:1,data:db_blog}
+        }else{
+            return Promise.reject({
+                status:-1,
+                data:"blogNot found"
+            })
         }
      })
  }
  exports.$_saveCategory=(category)=>{
-     return Category.findOneAndUpdate({name:category.name},category).then(category=>{
+     return Category.findOneAndUpdate({name:category.name},category, {upsert:true}).then(category=>{
          return {
             status:1,
             data:category
@@ -46,11 +57,12 @@
      })
  }
  exports.$_getBlogDetail = (query)=>{
-     if(query.id){
-        query._id = query.id
-        delete query.id
-     }
-     return Blog.findOne(query).exec().then(blog=>{
+    let condition = query
+    let { id } = query
+    if(id){
+        condition = { _id:transObjectId(id)}
+    }
+    return Blog.findOne(condition).exec().then(blog=>{
         return {
             status:1,
             data:blog
