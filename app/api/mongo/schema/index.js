@@ -20,10 +20,7 @@ const blogSchema = new Schema({
     rawContent:String,
     //http://mongoosejs.com/docs/schematypes.html
     category:categorySchema,
-    date: { type: String, default: ()=>{
-            return new Date().toLocaleString()
-        }
-    }
+    date: String
 },{
     _id:false,
     //http://mongoosejs.com/docs/guide.html#strict

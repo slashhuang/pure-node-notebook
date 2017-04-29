@@ -17,6 +17,7 @@
     if(id){
         condition = { _id:transObjectId(id)}
     }
+    blog.date  = new Date().toLocaleString()
     return Blog.findOneAndUpdate(condition,blog,{
         upsert:true
      }).exec()
@@ -46,7 +47,7 @@
      })
  }
  exports.$_getBlogList = ()=>{
-     return Blog.find().sort({ date: -1 }).exec().then(blogList=>{
+     return Blog.find().sort({ date: 1 }).exec().then(blogList=>{
         return {
             status:1,
             data:blogList
