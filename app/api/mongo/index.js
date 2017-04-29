@@ -69,6 +69,19 @@
          }
      })
  }
+ exports.$_deleteBlog = (query)=>{
+    let condition = query
+    let { id } = query
+    if(id){
+        condition = { _id:transObjectId(id)}
+    }
+    return Blog.remove(condition).exec().then(blog=>{
+        return {
+            status:1,
+            data:'删除成功'
+         }
+     })
+ }
 
 
 
