@@ -35,7 +35,7 @@
      })
  }
  //doc: http://mongoosejs.com/docs/queries.html
- exports.$_getCategoryList = ()=>{
+ exports.$_getCategoryList = query=>{
      return Category.find().sort({ name: 1 }).exec().then(categoryList=>{
         return {
             status:1,
@@ -43,8 +43,8 @@
          }
      })
  }
- exports.$_getBlogList = ()=>{
-     return Blog.find().sort({ date: 1 }).exec().then(blogList=>{
+ exports.$_getBlogList = query=>{
+     return Blog.find(query).sort({ date: 1 }).exec().then(blogList=>{
         return {
             status:1,
             data:blogList

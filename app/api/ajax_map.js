@@ -32,7 +32,8 @@ router.get('/categoryList.action',ctx=>{
 });
 //获取博客列表
 router.get('/blogList.action',ctx=>{
-    return $_getBlogList()
+    let {query} = ctx.reqCtx
+    return $_getBlogList(query)
 });
 //获取博客详情
 router.get('/blogDetail.action',ctx=>{
