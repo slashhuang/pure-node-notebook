@@ -24,10 +24,7 @@
         if(db_blog){
             return { status:1,data:db_blog}
         }else{
-            return Promise.reject({
-                status:-1,
-                data:"blogNot found"
-            })
+            return  { status:1,data:'新建博客成功'}
         }
      })
  }
@@ -35,7 +32,7 @@
      return Category.findOneAndUpdate({name:category.name},category, {upsert:true}).then(category=>{
          return {
             status:1,
-            data:category
+            data:category||'新建目录成功'
          }
      })
  }
