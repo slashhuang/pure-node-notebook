@@ -44,7 +44,7 @@
      })
  }
  exports.$_getBlogList = query=>{
-     return Blog.find(query).sort({ date: 1 }).exec().then(blogList=>{
+     return Blog.find(query).sort({ date: -1 }).exec().then(blogList=>{
         return {
             status:1,
             data:blogList
