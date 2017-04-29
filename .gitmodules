@@ -1,3 +1,6 @@
 [submodule "public"]
 	path = public
 	url = git@github.com:slashhuang/pure-node-notebook-fe.git
+[submodule "pure-node-notebook-fe"]
+	path = pure-node-notebook-fe
+	url = git@github.com:slashhuang/pure-node-notebook-fe.git

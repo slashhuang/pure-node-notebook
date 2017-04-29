@@ -22,7 +22,7 @@ server.use(viewServer);
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/blog');
-mongoose.connection.on('error', (err)=>console.error(`connection error:${error}`))
+mongoose.connection.on('error', (err)=>console.error(`connection error:${err}`))
     .once('open', ()=>console.log('connected to mongodb'));
 
 //启动app
