@@ -19,14 +19,11 @@
     }
     blog.date  = new Date().toLocaleString()
     return Blog.findOneAndUpdate(condition,blog,{
-        upsert:true
+        upsert:true,
+        new: true
      }).exec()
      .then(db_blog=>{
-        if(db_blog){
-            return { status:1,data:db_blog}
-        }else{
-            return  { status:1,data:'新建博客成功'}
-        }
+         return { status:1,data:db_blog}
      })
  }
  exports.$_saveCategory=(category)=>{
