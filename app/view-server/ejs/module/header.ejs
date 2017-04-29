@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="slashhuang的技术博客,技术博客" name="keywords">
+    <meta content="slashhuang的技术博客" name="description">
+    <meta name="viewport" charset="UTF-8" content="user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="baidu-tc-verification" content="de5877bb8a9756ef3aa8217110e60ef2" />
+    <title>slashhuang的技术博客</title>
+    <link rel="stylesheet" href="/dist/common.css">
+    <link rel="stylesheet" href="/dist/<%- viewName%>.css">
+</head>
+<body>
+<div class='header clear-fix'>
+	<img class='avatar' src='/img/avatar.jpeg' />
+	<ul class='nav'>
+		<li>
+			<a href='/'>首页</a>
+		</li>
+		<li>
+			<a href='/about'>关于</a>
+		</li>
+		<li>
+			<a href='/list'>博客列表</a>
+		</li>
+		<%if(hasUser){%>
+		<li>
+			<a href='/write'>写博客</a>
+		</li>
+		<% }%>
+		<li>
+			<form class="search"
+				 action="//google.com/search" method="get" accept-charset="utf-8">
+					<span>搜索</span>
+					<input type="search" id="search" name="q"
+							autocomplete="off" maxlength="20" placeholder="搜索">
+					<input type="hidden" name="q" value="site:slashhuang.github.io">
+			</form>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+    Object.defineProperty(window, 'hasUser', {
+        configurable:false,
+        enumerable:false,
+        value:<%- hasUser%>,
+        writable:false
+    })
+</script>
+
+
+

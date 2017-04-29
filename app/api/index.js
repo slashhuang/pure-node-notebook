@@ -1,43 +1,25 @@
 /*
- * @Author slashhuang
- * 客户端API中间件服务
- * 17/3/15
+ * api middleware
  */
 
-let fs = require('fs');
-let path = require('path');
-const ApiBlog = require('./Blog');
-const ApiUser = require('./User');
-const ajaxUtil = require('./util');
+const router = require('./ajax_map')
 
-module.exports = (request,response)=>{
-    let { pathname }= request.context;
-    let apiPool = Object.assign({},ApiBlog,ApiUser);
-    return Promise.resolve({then:(resolve,reject)=>{
-	    for(let apiName in apiPool){
-	    	let handler = apiPool[apiName];
-	    	//这里只简单比对path部分
-	    	if(pathname.match(apiName)){
-	    		let { shapeResponseJSON } = ajaxUtil;
-	    		let handlerResult = Promise.resolve(handler(request,response));
-	    		return handlerResult
-	    					.then(res=>{
-	    						/*
-								 * status,
-								 * body
-								 * message
-								 */
-	    						Object.assign(response.context,{
-	    							body : shapeResponseJSON(res),
-	    							ContentType:'application/json'
-	    						});
-	    						resolve()
-	    					})
-	    					.catch(error=>{
-				    			reject(error)
-		    				});
-	    	}
-	    }
-        resolve()    
-     }});
-}
+module.exports=(ctx)=>{
+ 	let { resCtx,reqCtx } = ctx;
+ 	let { pathname } = reqCtx;
+ 	if(!pathname.match(/\.action/)){
+ 		//let it pass
+ 		return Promise.resolve()
+ 	}
+	return router.routes(ctx).then(val=>{
+		if(val){
+			resCtx.statusCode=200
+			resCtx.headers = Object.assign(resCtx.headers,{
+				 "Content-Type":"application/json"})
+			resCtx.body = JSON.stringify(val);
+		}
+	}).catch(err=>{
+		resCtx.statusCode=400
+		resCtx.body =`${err.name} + ${err.stack}`;
+	})
+ }

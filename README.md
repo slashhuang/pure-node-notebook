@@ -66,7 +66,3 @@
 - [simplemde](https://github.com/NextStepWebs/simplemde-markdown-editor/)
 
 - [mongodb](http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/)
-
-
-
-

@@ -1,77 +1,75 @@
-/*
- *  主程序逻辑
- *  create by slashhuang
+/** 
+ * 主要核心逻辑入口
  */
- const DB = require('./db');
- const StaticHandler  = require('./statics');
- const RouterHandler = require('./router');
- const UrlParser = require('./url-parser');
- const BodyParser = require('./body-parser');
- const APIHander = require('./api');
- class APP {
+
+const fs = require('fs');
+const path = require('path');
+class App {
 	constructor(){
-		this.middlewareQueue = [];
+		this.middlewareArr = [];
+		//设计一个空的Promise
+		this.middlewareChain = Promise.resolve();
 	}
 	use(middleware){
-		this.middlewareQueue.push(middleware);
+		this.middlewareArr.push(middleware);
 	}
-	composeMiddleware(){
-		return this.middlewareQueue.reduce((pre,currentPromise,index,middlewareQueue)=>{
-					return	pre.then(()=>{
-								return currentPromise(this.request,this.response)
-							})
-			},Promise.resolve())
-	} 
- 	initServer(){ 
- 		DB().then(dbClient=>{
- 			this.dbClient = dbClient;
-			 //非严格模式
-			dbClient.createCollection('blog_list',(err)=>{
-				if(err){
-					console.log(err)
-				}else{
-					console.log(`create collection blog_list`)
-				}
-			});
- 		});
- 		//解析Url
-			this.use(UrlParser);
-			//解析body
-			this.use(BodyParser);
-			//提供ajax服务
-			this.use(APIHander)
-			//解析网页路由
-			this.use(RouterHandler);
-			//解析静态资源
-			this.use(StaticHandler);
- 		return (request,response)=>{
-			this.request = request;
-			this.response = response;
-			//自定义数据模型
-			response.dbClient = this.dbClient;
-			request.context={
-				body:'', //前端post的数据，
-				path:'',//路径
-				method:request.method.toLowerCase(),
-				query:'',//query键值对
-			};
-			//自定义数据模型
-			response.context={
-				body:'', //返回前端的数据，
-				ContentType:'text/plain', //返回头Content-Type类型
-			};
-			this.composeMiddleware().then(data=>{
-				let { body,ContentType } = response.context;
-				response.setHeader('Content-Type',ContentType)
-				response.statusCode= 200;
-				response.statusMessage = 'response correctly';
-				response.end(body);
-			}).catch(error=>{
-				response.writeHead(400,'bug happened');
-				response.end(`bug happended ${error.message} ${error.stack}`);
+	//创建Promise链条
+	composeMiddleware(context){
+		let { middlewareArr }= this
+		//根据中间件数组 创建Promise链条
+		// iterator 
+		for(let middleware of middlewareArr){
+			this.middlewareChain = this.middlewareChain.then(()=>{
+				return middleware(context)
 			})
- 		}
- 	}
- }
+		}
+		return this.middlewareChain
+	}
+	initServer(){
+		//初始化的工作
+		return (request,response)=>{
+			let { url,method } = request; //==> 解构赋值 let url = request.url
+			// 所有以action结尾的url，认为它是ajax
+			// DRY
+			//返回的字符串或者buffer
+			let context = {
+				req:request,
+				reqCtx:{
+					body:'',//post请求的数据
+					query:{},//处理客户端get请求
+				},
+				res:response,
+				resCtx:{
+					//标示用户
+					hasUser:false,
+					statusMessage:'resolve ok',
+					statusCode:404, //状态码
+					headers:{},//response的返回报文
+					body:'',//返回给前端的内容区
+				}
+			};
+			//request + response
+ 			//Promise.resolve(参数) ==> 通过context对象来传递
 
- module.exports = APP;
+ 			// 1、 每一块中间件只需要关注修改context对象即可，彼此独立
+ 			// 2、 设计了use和composeMiddleware这两个api用来创建Promise链
+ 			// 3、 开发者可以专注于中间件开发
+
+ 			// 函数体可以百年不变
+ 			this.composeMiddleware(context)
+ 				.then(()=>{
+					//数组
+					//setHeader(key,value)
+					let { body,headers,statusCode,statusMessage } = context.resCtx; 
+					let base ={'X-powered-by':'Node.js'};
+					// response.setHeader('Set-Cookie','hello=wolrd')
+					response.writeHead(statusCode,statusMessage,Object.assign(base,headers));
+					response.end(body)	
+				})
+
+		}
+	}
+}
+
+module.exports =  App
+
